@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/laekemariamdemessie/static/css/main.d1b05096.chunk.css",
+    "main.js": "/laekemariamdemessie/static/js/main.8298471d.chunk.js",
+    "main.js.map": "/laekemariamdemessie/static/js/main.8298471d.chunk.js.map",
+    "runtime-main.js": "/laekemariamdemessie/static/js/runtime-main.8075f647.js",
+    "runtime-main.js.map": "/laekemariamdemessie/static/js/runtime-main.8075f647.js.map",
+    "static/js/2.93613279.chunk.js": "/laekemariamdemessie/static/js/2.93613279.chunk.js",
+    "static/js/2.93613279.chunk.js.map": "/laekemariamdemessie/static/js/2.93613279.chunk.js.map",
+    "index.html": "/laekemariamdemessie/index.html",
+    "precache-manifest.baccc4fc275a51c2ddc860b8bc16e194.js": "/laekemariamdemessie/precache-manifest.baccc4fc275a51c2ddc860b8bc16e194.js",
+    "service-worker.js": "/laekemariamdemessie/service-worker.js",
+    "static/css/main.d1b05096.chunk.css.map": "/laekemariamdemessie/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.93613279.chunk.js.LICENSE": "/laekemariamdemessie/static/js/2.93613279.chunk.js.LICENSE",
+    "static/media/logo.svg": "/laekemariamdemessie/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8075f647.js",
+    "static/js/2.93613279.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.8298471d.chunk.js"
+  ]
+}
