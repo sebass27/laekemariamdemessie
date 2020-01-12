@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/laekemariamdemessie/precache-manifest.baccc4fc275a51c2ddc860b8bc16e194.js"
+  "/laekemariamdemessie/precache-manifest.c195655937e755d86e81bd46fa8801cb.js"
 );
 
 self.addEventListener('message', (event) => {
