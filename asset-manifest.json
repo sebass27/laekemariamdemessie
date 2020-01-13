@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/laekemariamdemessie/static/css/main.ea1f732e.chunk.css",
-    "main.js": "/laekemariamdemessie/static/js/main.1f5afccf.chunk.js",
-    "main.js.map": "/laekemariamdemessie/static/js/main.1f5afccf.chunk.js.map",
+    "main.css": "/laekemariamdemessie/static/css/main.92d135e2.chunk.css",
+    "main.js": "/laekemariamdemessie/static/js/main.b850c3ba.chunk.js",
+    "main.js.map": "/laekemariamdemessie/static/js/main.b850c3ba.chunk.js.map",
     "runtime-main.js": "/laekemariamdemessie/static/js/runtime-main.8075f647.js",
     "runtime-main.js.map": "/laekemariamdemessie/static/js/runtime-main.8075f647.js.map",
     "static/js/2.f161beac.chunk.js": "/laekemariamdemessie/static/js/2.f161beac.chunk.js",
     "static/js/2.f161beac.chunk.js.map": "/laekemariamdemessie/static/js/2.f161beac.chunk.js.map",
     "index.html": "/laekemariamdemessie/index.html",
-    "precache-manifest.c195655937e755d86e81bd46fa8801cb.js": "/laekemariamdemessie/precache-manifest.c195655937e755d86e81bd46fa8801cb.js",
+    "precache-manifest.9b68be935f149666e4c7a29abc6ef290.js": "/laekemariamdemessie/precache-manifest.9b68be935f149666e4c7a29abc6ef290.js",
     "service-worker.js": "/laekemariamdemessie/service-worker.js",
-    "static/css/main.ea1f732e.chunk.css.map": "/laekemariamdemessie/static/css/main.ea1f732e.chunk.css.map",
+    "static/css/main.92d135e2.chunk.css.map": "/laekemariamdemessie/static/css/main.92d135e2.chunk.css.map",
     "static/js/2.f161beac.chunk.js.LICENSE": "/laekemariamdemessie/static/js/2.f161beac.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.8075f647.js",
     "static/js/2.f161beac.chunk.js",
-    "static/css/main.ea1f732e.chunk.css",
-    "static/js/main.1f5afccf.chunk.js"
+    "static/css/main.92d135e2.chunk.css",
+    "static/js/main.b850c3ba.chunk.js"
   ]
 }
