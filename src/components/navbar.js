@@ -7,13 +7,13 @@ function Nav(){
             <nav className= "navbar">
                 <ul>
                     <li className= "brand">
-                        <a href="/" >Laeke Mariam Demessie</a>
+                        <a href="/" ><strong>Laeke Mariam Demessie</strong></a>
                     </li>
                     <li className= "search">
                         <a href="/about">About</a>
                     </li>
                     <li className= "score">
-                        <a href="/articles">Articles</a>
+                        <a href="/">Articles</a>
                     </li>
                 </ul>
             </nav>
