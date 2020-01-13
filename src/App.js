@@ -14,9 +14,9 @@ function App() {
     />)
   });
   return (
-    <ul>
+    <React.Fragment>
       {cards}
-    </ul>
+    </React.Fragment>
   );
 }
 
