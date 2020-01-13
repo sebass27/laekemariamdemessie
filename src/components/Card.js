@@ -7,7 +7,7 @@ class Card extends React.Component {
         <div className="col s12 m10 l8">
           <div className="card">
             <div className="card-image">
-              <img src={this.props.imageLink} alt={this.props.title} width="200px" height="200px"/>
+              <img src={this.props.imageLink} alt={this.props.title} width="150px" height="200px"/>
               
             </div>
             <div className="card-content brown lighten-5">

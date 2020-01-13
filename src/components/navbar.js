@@ -3,12 +3,12 @@ import React from "react";
 function Nav(){
     return(
 
-        <div className="navbar-fixed">
+        <div className="navbar-fixed nav-wrapper">
             <nav className= "navbar brown darken-3">
-                <ul>
-                    <li className= "brand">
-                        <a href="/" ><strong>Laeke Mariam Demessie</strong></a>
-                    </li>
+                <a href="/" className="brand-logo right">Laeke Mariam Demessie</a>
+                {/* TODO- add sidenav w/jquery included */}
+                {/* <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a> */}
+                <ul className="left">
                     <li className= "search">
                         <a href="/about">About</a>
                     </li>
