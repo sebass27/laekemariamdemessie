@@ -9,18 +9,20 @@ class Home extends Component {
   
   render() {
     // cards are mapped with page link,image, title and summary text
-    const cards = cardData.map(element => {
-      return (<Card 
-      pageLink={element.pageLink}
-      imageLink={element.imageLink}
-      title={element.title}
-      text={element.text}
-      />)
+    const Cards = cardData.map(element => {
+      return (
+        <Card 
+        pageLink={element.pageLink}
+        imageLink={element.imageLink}
+        title={element.title}
+        text={element.text}
+      />
+      )
     });
     return (
       <React.Fragment>
         <Nav/>
-        {cards}
+        {Cards}
       </React.Fragment>
     );
   }
