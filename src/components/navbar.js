@@ -4,7 +4,7 @@ function Nav(){
     return(
 
         <div className="navbar-fixed">
-            <nav className= "navbar">
+            <nav className= "navbar brown darken-3">
                 <ul>
                     <li className= "brand">
                         <a href="/" ><strong>Laeke Mariam Demessie</strong></a>
