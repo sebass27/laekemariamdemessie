@@ -9,5 +9,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: gh-pages deploy
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install
+    - name: Deploy to gh-pages
       run: npm run deploy
+      env:
+        CI: true
