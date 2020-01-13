@@ -5,16 +5,18 @@ class Card extends React.Component {
     return (
       <div className="row">
         <div className="col s12 m10 l8">
-          <div className="card">
-            <div className="card-image">
-              <img src={this.props.imageLink} alt={this.props.title} width="150px" height="200px"/>
+          <div className= "card">
+            <div className="card horizontal">
+              <div className="card-image blue-grey darken-4">
+                <img src={this.props.imageLink} alt={this.props.title} width="200px" height="100px"/>
+              </div>
+              <div className="card-content brown lighten-5">
+                <span className="card-title">{this.props.title}</span>
+                <span className= "flow-text">{this.props.text}</span>
+              </div>
             </div>
-            <div className="card-content brown lighten-5">
-              <span className="card-title"><h2>{this.props.title}</h2></span>
-              <span className= "flow-text">{this.props.text}</span>
-            </div>
-            <div className="card-action  teal darken-3">
-              <a href={this.props.pageLink}>Link to Article</a>
+            <div className="card-action blue darken-3">
+                <a href={this.props.pageLink}>Link to Article</a>
             </div>
           </div>
         </div>
