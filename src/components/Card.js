@@ -5,13 +5,14 @@ class Card extends React.Component {
     return (
       <div className="row">
         <div className="col s12 m10 l8">
-          <div className="card small">
+          <div className="card">
             <div className="card-image">
               <img src={this.props.imageLink} alt={this.props.title} />
-              <span className="card-title flow-text"><h2>{this.props.title}</h2></span>
+              
             </div>
             <div className="card-content">
-              <p className= "flow-text">{this.props.text}</p>
+              <span className="card-title flow-text"><h2>{this.props.title}</h2></span>
+              <span className= "flow-text">{this.props.text}</span>
             </div>
             <div className="card-action">
               <a href={this.props.pageLink}>Link to Article</a>
