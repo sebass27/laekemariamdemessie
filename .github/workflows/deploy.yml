@@ -13,7 +13,8 @@ jobs:
         run: |
           npm install
           npm run-script predeploy
-          
+          echo "laekemariamdemessie.com" > ./build/CNAME
+
       - name: Upload Artifacts # The project is then uploaded as an artifact named 'site'.
         uses: actions/upload-artifact@v1
         with:
