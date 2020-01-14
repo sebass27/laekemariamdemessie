@@ -6,7 +6,6 @@ import cardData from './card-data.json';
 import Nav from './components/navbar'
 
 class Home extends Component {
-  
   render() {
     // cards are mapped with page link,image, title and summary text
     const Cards = cardData.map(element => {

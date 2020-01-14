@@ -16,7 +16,7 @@ class Card extends React.Component {
               </div>
             </div>
             <div className="card-action blue darken-3">
-                <a href={this.props.pageLink}>Link to Article</a>
+                <a href={this.props.pageLink} className="link">Link to Article</a>
             </div>
           </div>
         </div>

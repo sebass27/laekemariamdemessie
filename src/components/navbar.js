@@ -1,6 +1,7 @@
 import React from "react";
 
 function Nav(){
+    // this is materialize way of shrinking nav items into a sandwich icon in smaller screens
     document.addEventListener('DOMContentLoaded', function() {
         var elems = document.querySelectorAll('.sidenav');
         // var instances = M.Sidenav.init(elems, options);
@@ -10,14 +11,13 @@ function Nav(){
         <div className="navbar-fixed nav-wrapper">
             <nav className= "navbar brown">
                 <a href="/" className="brand-logo right">Laeke Mariam Demessie</a>
-                {/* TODO- add sidenav w/jquery included */}
                 <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                 <ul className="left hide-on-med-and-down">
                     <li><a href="/about">About</a></li>
                     <li><a href="/">Articles</a></li>
                 </ul>
             </nav>
-            <ul class="sidenav" id="mobile-demo">
+            <ul className="sidenav" id="mobile-demo">
                 <li><a href="/about">About</a></li>
                 <li><a href="/">Articles</a></li>
             </ul>
