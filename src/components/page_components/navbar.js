@@ -1,5 +1,6 @@
 import React from "react";
 
+
 function Nav(){
     // this is materialize way of shrinking nav items into a sandwich icon in smaller screens
     document.addEventListener('DOMContentLoaded', function() {
