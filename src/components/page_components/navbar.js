@@ -15,11 +15,15 @@ function Nav(){
                 <ul className="left hide-on-med-and-down">
                     <li><a href="/about">About</a></li>
                     <li><a href="/">Articles</a></li>
+                    <li><a href="/media">Media</a></li>
+                    <li><a href="/book">Book</a></li>
                 </ul>
             </nav>
             <ul className="sidenav" id="mobile-demo">
                 <li><a href="/about">About</a></li>
                 <li><a href="/">Articles</a></li>
+                <li><a href="/media">Media</a></li>
+                <li><a href="/book">Book</a></li>
             </ul>
         </div>
     )
