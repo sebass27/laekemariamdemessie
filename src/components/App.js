@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import './App.css';
 import Card from './listings/Card';
-import cardData from '../data/card-data.json';
+import CardData from '../data/card-data.json';
 import Nav from './page_components/navbar'
 import Consent from './page_components/cookie-consent';
 
