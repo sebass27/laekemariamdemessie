@@ -1,9 +1,9 @@
 
 import React, { Component } from "react";
 import './App.css';
-import Card from './components/Card';
-import cardData from './card-data.json';
-import Nav from './components/navbar'
+import Card from './listings/Card';
+import cardData from '../data/card-data.json';
+import Nav from './page_components/navbar'
 
 class Home extends Component {
   render() {
