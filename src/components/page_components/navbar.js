@@ -2,10 +2,10 @@ import React from "react";
 
 function Nav(){
     // this is materialize way of shrinking nav items into a sandwich icon in smaller screens
-    document.addEventListener('DOMContentLoaded', function() {
-        var elems = document.querySelectorAll('.sidenav');
-        // var instances = M.Sidenav.init(elems, options);
-    });
+    // document.addEventListener('DOMContentLoaded', function() {
+    //     var elems = document.querySelectorAll('.sidenav');
+    //     // var instances = M.Sidenav.init(elems, options);
+    // });
     return(
 
         <div className="navbar-fixed nav-wrapper">
