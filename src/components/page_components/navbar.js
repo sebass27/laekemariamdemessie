@@ -1,5 +1,6 @@
 import React from "react";
 
+
 function Nav(){
     // this is materialize way of shrinking nav items into a sandwich icon in smaller screens
     document.addEventListener('DOMContentLoaded', function() {
@@ -15,11 +16,15 @@ function Nav(){
                 <ul className="left hide-on-med-and-down">
                     <li><a href="/about">About</a></li>
                     <li><a href="/">Articles</a></li>
+                    <li><a href="/media">Media</a></li>
+                    <li><a href="/book">Book</a></li>
                 </ul>
             </nav>
             <ul className="sidenav" id="mobile-demo">
                 <li><a href="/about">About</a></li>
                 <li><a href="/">Articles</a></li>
+                <li><a href="/media">Media</a></li>
+                <li><a href="/book">Book</a></li>
             </ul>
         </div>
     )
