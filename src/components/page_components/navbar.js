@@ -10,7 +10,7 @@ function Nav(){
     return(
 
         <div className="navbar-fixed nav-wrapper">
-            <nav className= "navbar brown">
+            <nav className= "navbar purple">
                 <a href="/" className="brand-logo right">Laeke Mariam Demessie</a>
                 <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                 <ul className="left hide-on-med-and-down">
