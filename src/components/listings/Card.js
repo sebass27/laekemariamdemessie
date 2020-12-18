@@ -4,7 +4,7 @@ class Card extends React.Component {
   render() {
     return (
       <div className="row">
-        <div className="col s12 m10 l8 offset-s3 offset-m3 offset-l3">
+        <div className="col s12 m10 l8 push-xs2 push-s2 push-m2 push-l2 pull-xs2 pull-s2 pull-m2 pull-l2">
           <div className= "card">
             {/* <div className="card horizontal"> */}
               {/* <div className="card-image grey darken-4">
