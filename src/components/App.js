@@ -12,7 +12,7 @@ class Home extends Component {
       return (
         <Card 
         pageLink={element.pageLink}
-        imageLink={element.imageLink}
+        // imageLink={element.imageLink}
         title={element.title}
         text={element.text}
         />

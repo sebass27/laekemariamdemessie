@@ -19,7 +19,7 @@ class Consent extends Component {
                 </CookieConsent>
             </React.Fragment>
         )
-    }
+    }   
 }
 
 export default Consent;
