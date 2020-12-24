@@ -11,10 +11,10 @@ class Home extends Component {
     const Cards = CardData.map(element => {
       return (
         <Card 
-        pageLink={element.pageLink}
-        // imageLink={element.imageLink}
-        title={element.title}
-        text={element.text}
+          pageLink={element.pageLink}
+          imageLink={element.imageLink}
+          title={element.title}
+          text={element.text}
         />
       )
     });
