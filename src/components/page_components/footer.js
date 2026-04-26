@@ -4,7 +4,9 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-inner">
-        <div className="footer-logo">Laeke Mariam Demessie</div>
+        <div className="footer-logo">
+          <img src="/imgs/lmd.svg" alt="Laeke Mariam Demessie" />
+        </div>
         <p className="footer-text">
           Journalist and writer covering Africa's most critical stories.<br />
           Reporting where it matters most.

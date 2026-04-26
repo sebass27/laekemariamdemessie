@@ -6,7 +6,9 @@ function Nav() {
   return (
     <div className="nav-wrapper">
       <nav className="navbar">
-        <a href="#hero" className="brand-logo">LMD</a>
+        <a href="#hero" className="brand-logo">
+          <img src="/imgs/lmd.svg" alt="Laeke Mariam Demessie" />
+        </a>
         <ul className={menuOpen ? "sidenav open" : "sidenav"} id="mobile-demo">
           <li><a href="#about" onClick={() => setMenuOpen(false)}>About</a></li>
           <li><a href="#articles" onClick={() => setMenuOpen(false)}>Articles</a></li>

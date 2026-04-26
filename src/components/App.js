@@ -25,6 +25,7 @@ function Home() {
     <>
       <section className="hero" id="hero">
         <div className="hero-content">
+          <img src="/imgs/lmd.svg" alt="Laeke Mariam Demessie" className="hero-lmd" />
           <div className="hero-tag">Journalist &amp; Writer</div>
           <h1>Laeke Mariam<br /><span className="accent">Demessie</span></h1>
           <p className="hero-subtitle">
