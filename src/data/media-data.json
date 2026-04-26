@@ -1,0 +1,26 @@
+[
+  {
+    "title": "BBC Africa",
+    "description": "Contributing journalist covering Ethiopian and Horn of Africa affairs, including de-mining, ancient heritage, and telecommunications.",
+    "link": "http://news.bbc.co.uk/2/hi/africa/",
+    "type": "Broadcast"
+  },
+  {
+    "title": "Sudan Tribune",
+    "description": "Reporting on Sudan and Darfur peace processes, conflict analysis, and regional diplomacy from Addis Ababa.",
+    "link": "https://www.sudantribune.com/",
+    "type": "Online Publication"
+  },
+  {
+    "title": "IPS News",
+    "description": "Contributing to coverage of African science, biodiversity, and genetic rights advocacy.",
+    "link": "http://www.ipsnews.net/",
+    "type": "News Agency"
+  },
+  {
+    "title": "Questia Magazine",
+    "description": "Published analytical pieces on Ethiopian telecommunications infrastructure and development challenges.",
+    "link": "https://www.questia.com/",
+    "type": "Academic"
+  }
+]

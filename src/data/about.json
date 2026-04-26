@@ -1,0 +1,11 @@
+{
+  "name": "Laeke Mariam Demessie",
+  "tagline": "Journalist & Writer",
+  "bio": "Laeke Mariam Demessie is an Ethiopian journalist whose work spans the breadth of African affairs — from telecommunications and de-mining efforts in the Horn of Africa to biodiversity conservation and the preservation of Ethiopia's ancient Ge'ez script.",
+  "bio2": "With bylines at BBC, Sudan Tribune, IPS News, and major publications, Laeke has spent decades bringing underreported stories from Ethiopia, Sudan, and the wider African continent to a global audience.",
+  "stats": [
+    { "number": "11+", "label": "Published Articles" },
+    { "number": "BBC", "label": "Contributor" },
+    { "number": "Ethiopia", "label": "Based" }
+  ]
+}
