@@ -220,6 +220,15 @@ class App extends Component {
     this.setState({ currentPage: hash });
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    // Poll for hash changes — more reliable than hashchange event which
+    // the browser sometimes swallows during anchor navigation
+    const currentHash = window.location.hash.replace('#', '') || 'home';
+    if (prevState.currentPage !== currentHash) {
+      this.setState({ currentPage: currentHash });
+    }
+  }
+
   render() {
     const { currentPage } = this.state;
     const page = currentPage === 'media' ? 'media' : currentPage === 'book' ? 'book' : 'home';
