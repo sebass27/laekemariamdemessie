@@ -184,11 +184,18 @@ class App extends Component {
 
   componentDidMount() {
     this.setupObserver();
+    // Set initial page from current hash on mount
+    const initialHash = window.location.hash.replace('#', '') || 'home';
+    this.setState({ currentPage: initialHash });
     window.addEventListener('hashchange', this.handleHashChange);
   }
 
   componentWillUnmount() {
     window.removeEventListener('hashchange', this.handleHashChange);
+    // Clean up observer to avoid stale references
+    if (this.observer) {
+      this.observer.disconnect();
+    }
   }
 
   setupObserver = () => {
