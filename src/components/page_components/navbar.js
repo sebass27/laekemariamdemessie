@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Nav() {
+function Nav({ scrollY, navScrolled }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const links = [
@@ -13,7 +13,7 @@ function Nav() {
   ];
 
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${navScrolled ? 'scrolled' : ''}`}>
       <a href="#hero" className="brand-logo">
         <img src="/imgs/lmd.svg" alt="Laeke Mariam Demessie" />
       </a>
@@ -30,7 +30,7 @@ function Nav() {
       </ul>
 
       {/* Desktop nav */}
-      <ul className="left hide-on-med-and-down">
+      <ul className="nav-links hide-on-med-and-down">
         {links.map((link, i) => (
           <li key={i}>
             <a href={link.href} data-label={link.label}>

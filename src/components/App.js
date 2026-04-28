@@ -12,11 +12,11 @@ import MediaData from '../data/media-data.json';
    FLOATING PARTICLES
    ═══════════════════════════════════════════════════════════ */
 function Particles() {
-  const particles = Array.from({ length: 30 }, (_, i) => ({
+  const particles = Array.from({ length: 25 }, (_, i) => ({
     id: i,
     left: Math.random() * 100,
-    delay: Math.random() * 10,
-    duration: 8 + Math.random() * 12,
+    delay: Math.random() * 12,
+    duration: 10 + Math.random() * 14,
     size: 1 + Math.random() * 2,
   }));
   return (
@@ -59,13 +59,13 @@ function ScrollProgress() {
    FLOATING SHAPES
    ═══════════════════════════════════════════════════════════ */
 const shapes = [
-  { size: 80, top: '15%', left: '10%', delay: 0, dur: 20 },
-  { size: 40, top: '25%', right: '15%', delay: -3, dur: 18 },
-  { size: 60, top: '60%', left: '15%', delay: -7, dur: 22 },
-  { size: 100, top: '70%', right: '10%', delay: -5, dur: 25 },
-  { size: 30, top: '50%', left: '5%', delay: -10, dur: 16 },
-  { size: 50, bottom: '20%', left: '40%', delay: -2, dur: 21 },
-  { size: 35, top: '40%', right: '25%', delay: -8, dur: 19 },
+  { size: 120, top: '10%', left: '5%', delay: 0, dur: 22 },
+  { size: 60, top: '20%', right: '10%', delay: -3, dur: 18 },
+  { size: 80, top: '55%', left: '10%', delay: -7, dur: 24 },
+  { size: 150, top: '65%', right: '5%', delay: -5, dur: 26 },
+  { size: 40, top: '45%', left: '3%', delay: -10, dur: 16 },
+  { size: 70, bottom: '15%', left: '35%', delay: -2, dur: 20 },
+  { size: 50, top: '35%', right: '20%', delay: -8, dur: 21 },
 ];
 
 function FloatingShapes() {
@@ -84,9 +84,9 @@ function FloatingShapes() {
             bottom: s.bottom || undefined,
             animationDelay: `${s.delay}s`,
             animationDuration: `${s.dur}s`,
-            borderRadius: i === 1 ? '0' : i === 2 ? '12px' : '50%',
-            transform: i === 1 ? 'rotate(45deg)' : undefined,
-            borderColor: i % 3 === 0 ? 'rgba(0,155,58,0.12)' : i % 3 === 1 ? 'rgba(252,221,9,0.1)' : 'rgba(218,18,26,0.08)',
+            borderRadius: i % 3 === 0 ? '50%' : i % 3 === 1 ? '0' : '16px',
+            transform: i % 3 === 1 ? 'rotate(45deg)' : undefined,
+            borderColor: i % 3 === 0 ? 'rgba(0,155,58,0.06)' : i % 3 === 1 ? 'rgba(252,221,9,0.05)' : 'rgba(218,18,26,0.04)',
           }}
         />
       ))}
@@ -135,7 +135,7 @@ function TiltCard({ children, className, ...rest }) {
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
     setStyle({
-      transform: `perspective(1000px) rotateX(${y * -8}deg) rotateY(${x * 8}deg) translateY(-5px) scale(1.01)`,
+      transform: `perspective(1000px) rotateX(${y * -6}deg) rotateY(${x * 6}deg) translateY(-3px) scale(1.005)`,
       transition: 'transform 0.15s ease-out',
     });
   };
@@ -282,6 +282,68 @@ function Home() {
       </section>
 
       <div className="section-divider"></div>
+
+      {/* ═══════════════════════════════════════════════════════════
+          MEDIA & PUBLICATIONS — Combined Section
+          ═══════════════════════════════════════════════════════════ */}
+      <section className="section-container" id="media" style={{ paddingTop: '8rem' }}>
+        <div className="section-number reveal" data-number="04">Media</div>
+        <div className="section-label">Press</div>
+        <h2 className="section-title reveal reveal-down">Media &amp; Publications</h2>
+        <p className="section-desc reveal reveal-down stagger-1">
+          Laeke's work has been featured across major international publications and broadcast networks.
+        </p>
+        <div className="media-grid">
+          {MediaData.map((item, i) => (
+            <TiltCard
+              key={i}
+              className={`media-card reveal stagger-${i + 1}`}
+            >
+              <div className="card-type">{item.type}</div>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+              <a href={item.link} target="_blank" rel="noopener noreferrer" className="card-link">
+                Visit →
+              </a>
+            </TiltCard>
+          ))}
+        </div>
+      </section>
+      <div className="section-divider"></div>
+
+      {/* ═══════════════════════════════════════════════════════════
+          BOOK — Coming Soon Section
+          ═══════════════════════════════════════════════════════════ */}
+      <section className="section-container" id="book" style={{ paddingTop: '8rem' }}>
+        <div className="section-number reveal" data-number="05">Book</div>
+        <div className="section-label">Published Work</div>
+        <h2 className="section-title reveal reveal-down">Coming Soon</h2>
+        <p className="section-desc reveal reveal-down stagger-1">
+          A comprehensive collection of Laeke Mariam Demessie's reporting from across the African continent.
+        </p>
+        <div className="book-section">
+          <div className="book-cover reveal reveal-scale stagger-2">
+            <span style={{ textAlign: 'center', padding: '2rem' }}>
+              <div style={{ fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '1rem', opacity: 0.7 }}>Coming 2026</div>
+              <div style={{ fontSize: '2rem', fontWeight: 700, fontFamily: "var(--font-serif)" }}>LAKE</div>
+              <div style={{ fontSize: '0.8rem', marginTop: '1rem', opacity: 0.6, fontStyle: 'italic' }}>Stories from the Horn</div>
+            </span>
+          </div>
+          <div className="book-info reveal reveal-right stagger-3">
+            <h3>A New Book</h3>
+            <p>
+              In-depth reporting and analysis compiled into book form — weaving together stories of conflict, culture, science, and the enduring spirit of a continent in transformation.
+            </p>
+            <p>
+              Drawing on decades of field reporting from Ethiopia, Sudan, Darfur, and the wider Horn of Africa.
+            </p>
+            <a href="#articles" className="btn btn-primary" style={{ marginTop: '1rem' }}>
+              <span>Read Articles Now</span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <div className="section-divider"></div>
     </>
   );
 }
@@ -360,7 +422,7 @@ function BookPage() {
           <div className="book-cover reveal reveal-scale stagger-2">
             <span style={{ textAlign: 'center', padding: '2rem' }}>
               <div style={{ fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '1rem', opacity: 0.7 }}>Coming 2026</div>
-              <div style={{ fontSize: '2rem', fontWeight: 700 }}>LAKE</div>
+              <div style={{ fontSize: '2rem', fontWeight: 700, fontFamily: "var(--font-serif)" }}>LAKE</div>
               <div style={{ fontSize: '0.8rem', marginTop: '1rem', opacity: 0.6, fontStyle: 'italic' }}>Stories from the Horn</div>
             </span>
           </div>
@@ -498,30 +560,30 @@ class App extends Component {
 
     const showRing = () => {
       this.cursorRing.classList.add('hover');
-      this.cursorDot.classList.add('hover');
     };
+
     const hideRing = () => {
       this.cursorRing.classList.remove('hover');
-      this.cursorDot.classList.remove('hover');
     };
 
-    window.addEventListener('mousemove', moveCursor, { passive: true });
+    window.addEventListener('mousemove', moveCursor);
 
-    const hoverTargets = 'a, button, .article-card, .media-card, .topic-tag, .btn, .sidenav-trigger, [data-hover]';
-    document.addEventListener('mouseover', (e) => {
-      if (e.target.closest(hoverTargets)) showRing();
+    const hoverTargets = document.querySelectorAll('a, button, .topic-tag, .article-card, .media-card, input');
+    hoverTargets.forEach(el => {
+      el.addEventListener('mouseenter', showRing);
+      el.addEventListener('mouseleave', hideRing);
     });
-    document.addEventListener('mouseout', (e) => {
-      if (e.target.closest(hoverTargets)) hideRing();
-    });
-  };
 
-  handleScroll = () => {
-    const scrollY = window.scrollY;
-    const navScrolled = scrollY > 80;
-    if (this.state.scrollY !== scrollY || this.state.navScrolled !== navScrolled) {
-      this.setState({ scrollY, navScrolled });
-    }
+    // Re-check for dynamically added elements
+    setInterval(() => {
+      document.querySelectorAll('a, button, .topic-tag, .article-card, .media-card, input').forEach(el => {
+        if (!el.dataset.cursorBound) {
+          el.dataset.cursorBound = 'true';
+          el.addEventListener('mouseenter', showRing);
+          el.addEventListener('mouseleave', hideRing);
+        }
+      });
+    }, 1000);
   };
 
   handleHashChange = () => {
@@ -529,41 +591,35 @@ class App extends Component {
     this.setState({ currentPage: hash });
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    const currentHash = window.location.hash.replace('#', '') || 'home';
-    if (prevState.currentPage !== currentHash) {
-      this.setState({ currentPage: currentHash });
+  handleScroll = () => {
+    const scrollY = window.scrollY;
+    const navScrolled = scrollY > 80;
+    if (this.state.scrollY !== scrollY) {
+      this.setState({ scrollY, navScrolled });
     }
-  }
+  };
+
+  renderPage = () => {
+    const pageClass = 'page-enter';
+    switch (this.state.currentPage) {
+      case 'media':
+        return <MediaPage key={this.state.currentPage} className={pageClass} />;
+      case 'book':
+        return <BookPage key={this.state.currentPage} className={pageClass} />;
+      default:
+        return <Home key={this.state.currentPage} className={pageClass} />;
+    }
+  };
 
   render() {
-    const { currentPage, navScrolled } = this.state;
-    const page = currentPage === 'media' ? 'media' : currentPage === 'book' ? 'book' : 'home';
-
     return (
-      <div className="App">
-        <ScrollProgress />
+      <div className="app">
         <Particles />
-        <div className="bg-grid"></div>
-        <div className="bg-orbs">
-          <div className="bg-orb"></div>
-          <div className="bg-orb"></div>
-          <div className="bg-orb"></div>
-          <div className="bg-orb"></div>
-        </div>
-        <div className="blob-container">
-          <div className="blob"></div>
-        </div>
-        <div className={`nav-wrapper ${navScrolled ? 'scrolled' : ''}`}>
-          <Nav />
-        </div>
-        <div key={page} className="page-transition">
-          {page === 'home' && <Home />}
-          {page === 'media' && <MediaPage />}
-          {page === 'book' && <BookPage />}
-        </div>
-        <Consent />
+        <ScrollProgress />
+        <Nav scrollY={this.state.scrollY} navScrolled={this.state.navScrolled} />
+        {this.renderPage()}
         <Footer />
+        <Consent />
       </div>
     );
   }
