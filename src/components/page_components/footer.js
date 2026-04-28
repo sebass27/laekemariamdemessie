@@ -16,9 +16,11 @@ function Footer() {
           <a href="#about">About</a>
           <a href="#articles">Articles</a>
           <a href="#topics">Topics</a>
+          <a href="#media">Media</a>
+          <a href="#book">Book</a>
         </div>
-        <p className="footer-text" style={{ marginTop: '2rem', opacity: 0.5 }}>
-          &copy; 2026 Laeke Mariam Demessie. All rights reserved.
+        <p className="footer-copy">
+          &copy; {new Date().getFullYear()} Laeke Mariam Demessie. All rights reserved.
         </p>
       </div>
     </footer>
