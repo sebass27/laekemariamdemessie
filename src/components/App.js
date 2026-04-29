@@ -370,89 +370,12 @@ function StatNumberWrapper({ stat }) {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   MEDIA PAGE
-   ═══════════════════════════════════════════════════════════ */
-function MediaPage() {
-  const MediaCards = MediaData.map((item, i) => (
-    <TiltCard
-      key={i}
-      className={`media-card reveal stagger-${i + 1}`}
-    >
-      <div className="card-type">{item.type}</div>
-      <h3>{item.title}</h3>
-      <p>{item.description}</p>
-      <a href={item.link} target="_blank" rel="noopener noreferrer" className="card-link">
-        Visit →
-      </a>
-    </TiltCard>
-  ));
-
-  return (
-    <>
-      <section className="section-container" id="media" style={{ paddingTop: '8rem' }}>
-        <div className="section-number reveal" data-number="04">Media</div>
-        <div className="section-label">Press</div>
-        <h2 className="section-title reveal reveal-down">Media &amp; Publications</h2>
-        <p className="section-desc reveal reveal-down stagger-1">
-          Laeke's work has been featured across major international publications and broadcast networks.
-        </p>
-        <div className="media-grid">
-          {MediaCards}
-        </div>
-      </section>
-      <div className="section-divider"></div>
-    </>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════
-   BOOK PAGE
-   ═══════════════════════════════════════════════════════════ */
-function BookPage() {
-  return (
-    <>
-      <section className="section-container" id="book" style={{ paddingTop: '8rem' }}>
-        <div className="section-number reveal" data-number="05">Book</div>
-        <div className="section-label">Published Work</div>
-        <h2 className="section-title reveal reveal-down">Coming Soon</h2>
-        <p className="section-desc reveal reveal-down stagger-1">
-          A comprehensive collection of Laeke Mariam Demessie's reporting from across the African continent.
-        </p>
-        <div className="book-section">
-          <div className="book-cover reveal reveal-scale stagger-2">
-            <span style={{ textAlign: 'center', padding: '2rem' }}>
-              <div style={{ fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '1rem', opacity: 0.7 }}>Coming 2026</div>
-              <div style={{ fontSize: '2rem', fontWeight: 700, fontFamily: "var(--font-serif)" }}>LAKE</div>
-              <div style={{ fontSize: '0.8rem', marginTop: '1rem', opacity: 0.6, fontStyle: 'italic' }}>Stories from the Horn</div>
-            </span>
-          </div>
-          <div className="book-info reveal reveal-right stagger-3">
-            <h3>A New Book</h3>
-            <p>
-              In-depth reporting and analysis compiled into book form — weaving together stories of conflict, culture, science, and the enduring spirit of a continent in transformation.
-            </p>
-            <p>
-              Drawing on decades of field reporting from Ethiopia, Sudan, Darfur, and the wider Horn of Africa.
-            </p>
-            <a href="#articles" className="btn btn-primary" style={{ marginTop: '1rem' }}>
-              <span>Read Articles Now</span>
-            </a>
-          </div>
-        </div>
-      </section>
-      <div className="section-divider"></div>
-    </>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════
-   MAIN APP
+   MAIN APP — Single-page layout (Home always renders)
    ═══════════════════════════════════════════════════════════ */
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentPage: 'home',
       scrollY: 0,
       navScrolled: false,
     };
@@ -464,14 +387,10 @@ class App extends Component {
   componentDidMount() {
     this.setupObserver();
     this.setupCursor();
-    const initialHash = window.location.hash.replace('#', '') || 'home';
-    this.setState({ currentPage: initialHash });
-    window.addEventListener('hashchange', this.handleHashChange);
     window.addEventListener('scroll', this.handleScroll, { passive: true });
   }
 
   componentWillUnmount() {
-    window.removeEventListener('hashchange', this.handleHashChange);
     window.removeEventListener('scroll', this.handleScroll);
     if (this.observer) this.observer.disconnect();
     if (this.cursorDot) this.cursorDot.remove();
@@ -586,28 +505,11 @@ class App extends Component {
     }, 1000);
   };
 
-  handleHashChange = () => {
-    const hash = window.location.hash.replace('#', '') || 'home';
-    this.setState({ currentPage: hash });
-  };
-
   handleScroll = () => {
     const scrollY = window.scrollY;
     const navScrolled = scrollY > 80;
     if (this.state.scrollY !== scrollY) {
       this.setState({ scrollY, navScrolled });
-    }
-  };
-
-  renderPage = () => {
-    const pageClass = 'page-enter';
-    switch (this.state.currentPage) {
-      case 'media':
-        return <MediaPage key={this.state.currentPage} className={pageClass} />;
-      case 'book':
-        return <BookPage key={this.state.currentPage} className={pageClass} />;
-      default:
-        return <Home key={this.state.currentPage} className={pageClass} />;
     }
   };
 
@@ -617,7 +519,7 @@ class App extends Component {
         <Particles />
         <ScrollProgress />
         <Nav scrollY={this.state.scrollY} navScrolled={this.state.navScrolled} />
-        {this.renderPage()}
+        <Home />
         <Footer />
         <Consent />
       </div>
