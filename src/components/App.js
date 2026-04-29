@@ -98,7 +98,6 @@ function FloatingShapes() {
    ANIMATED COUNTER
    ═══════════════════════════════════════════════════════════ */
 function AnimatedCounter({ number, visible }) {
-  const [current, setCurrent] = useState(0);
   const num = parseInt(number, 10);
   const hasLetter = /\D/.test(number);
   const cleanNum = hasLetter ? parseInt(number.replace(/\D/g, ''), 10) : num;
@@ -108,6 +107,8 @@ function AnimatedCounter({ number, visible }) {
   if (isNaN(cleanNum)) {
     return <div className="stat-number">{number}</div>;
   }
+
+  const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     if (!visible) return;
