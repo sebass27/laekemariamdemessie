@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Card({ pageLink, imageLink, title, text, source, sourceClass }) {
+function Card({ pageLink, imageLink, title, text, source, sourceClass, className = 'article-card reveal' }) {
   return (
-    <div className="article-card reveal">
+    <div className={className}>
       <span className={`article-source ${sourceClass}`}>{source}</span>
       <h3 className="article-title">{title}</h3>
       <p className="article-excerpt">{text}</p>

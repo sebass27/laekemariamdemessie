@@ -104,6 +104,11 @@ function AnimatedCounter({ number, visible }) {
   const cleanNum = hasLetter ? parseInt(number.replace(/\D/g, ''), 10) : num;
   const suffix = hasLetter ? number.replace(/\d/g, '') : '';
 
+  // If no digits found, just render the raw string without animation
+  if (isNaN(cleanNum)) {
+    return <div className="stat-number">{number}</div>;
+  }
+
   useEffect(() => {
     if (!visible) return;
     let start = null;
@@ -159,10 +164,7 @@ function TiltCard({ children, className, ...rest }) {
    ═══════════════════════════════════════════════════════════ */
 function Home() {
   const Cards = CardData.map((element, i) => (
-    <TiltCard
-      key={i}
-      className={`article-card reveal stagger-${i + 1}`}
-    >
+    <TiltCard key={i}>
       <Card
         pageLink={element.pageLink}
         imageLink={element.imageLink}
@@ -170,6 +172,7 @@ function Home() {
         text={element.text}
         source={element.source}
         sourceClass={element.sourceClass}
+        className={`article-card reveal stagger-${i + 1}`}
       />
     </TiltCard>
   ));
