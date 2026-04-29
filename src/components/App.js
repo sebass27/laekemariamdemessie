@@ -1,4 +1,4 @@
-import React, { Component, createRef, useEffect, useRef, useState } from 'react';
+import React, { Component, useEffect, useRef, useState } from 'react';
 import './App.css';
 import Card from './listings/Card';
 import CardData from '../data/card-data.json';
