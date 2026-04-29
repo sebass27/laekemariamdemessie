@@ -98,17 +98,11 @@ function FloatingShapes() {
    ANIMATED COUNTER
    ═══════════════════════════════════════════════════════════ */
 function AnimatedCounter({ number, visible }) {
+  const [current, setCurrent] = useState(0);
   const num = parseInt(number, 10);
   const hasLetter = /\D/.test(number);
   const cleanNum = hasLetter ? parseInt(number.replace(/\D/g, ''), 10) : num;
   const suffix = hasLetter ? number.replace(/\d/g, '') : '';
-
-  // If no digits found, just render the raw string without animation
-  if (isNaN(cleanNum)) {
-    return <div className="stat-number">{number}</div>;
-  }
-
-  const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     if (!visible) return;
@@ -124,6 +118,10 @@ function AnimatedCounter({ number, visible }) {
     };
     requestAnimationFrame(animate);
   }, [visible, cleanNum]);
+
+  if (isNaN(cleanNum)) {
+    return <div className="stat-number">{number}</div>;
+  }
 
   return <div className="stat-number">{current}{suffix}</div>;
 }
