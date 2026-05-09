@@ -12,12 +12,12 @@ import MediaData from '../data/media-data.json';
    FLOATING PARTICLES
    ═══════════════════════════════════════════════════════════ */
 function Particles() {
-  const particles = Array.from({ length: 25 }, (_, i) => ({
+  const particles = Array.from({ length: 35 }, (_, i) => ({
     id: i,
     left: Math.random() * 100,
-    delay: Math.random() * 12,
-    duration: 10 + Math.random() * 14,
-    size: 1 + Math.random() * 2,
+    delay: Math.random() * 14,
+    duration: 12 + Math.random() * 16,
+    size: 1 + Math.random() * 2.5,
   }));
   return (
     <div className="particles-container">
@@ -59,13 +59,15 @@ function ScrollProgress() {
    FLOATING SHAPES
    ═══════════════════════════════════════════════════════════ */
 const shapes = [
-  { size: 120, top: '10%', left: '5%', delay: 0, dur: 22 },
-  { size: 60, top: '20%', right: '10%', delay: -3, dur: 18 },
-  { size: 80, top: '55%', left: '10%', delay: -7, dur: 24 },
-  { size: 150, top: '65%', right: '5%', delay: -5, dur: 26 },
-  { size: 40, top: '45%', left: '3%', delay: -10, dur: 16 },
-  { size: 70, bottom: '15%', left: '35%', delay: -2, dur: 20 },
-  { size: 50, top: '35%', right: '20%', delay: -8, dur: 21 },
+  { size: 140, top: '8%', left: '4%', delay: 0, dur: 24, color: 'rgba(0,155,58,0.07)' },
+  { size: 60, top: '18%', right: '8%', delay: -3, dur: 20, color: 'rgba(252,221,9,0.06)' },
+  { size: 90, top: '52%', left: '8%', delay: -7, dur: 26, color: 'rgba(218,18,26,0.05)' },
+  { size: 160, top: '62%', right: '4%', delay: -5, dur: 28, color: 'rgba(0,155,58,0.06)' },
+  { size: 45, top: '42%', left: '2%', delay: -10, dur: 18, color: 'rgba(252,221,9,0.07)' },
+  { size: 75, bottom: '12%', left: '32%', delay: -2, dur: 22, color: 'rgba(218,18,26,0.05)' },
+  { size: 55, top: '32%', right: '18%', delay: -8, dur: 23, color: 'rgba(0,155,58,0.06)' },
+  { size: 100, bottom: '28%', right: '12%', delay: -12, dur: 30, color: 'rgba(252,221,9,0.04)' },
+  { size: 35, top: '70%', left: '15%', delay: -4, dur: 19, color: 'rgba(218,18,26,0.06)' },
 ];
 
 function FloatingShapes() {
@@ -84,9 +86,9 @@ function FloatingShapes() {
             bottom: s.bottom || undefined,
             animationDelay: `${s.delay}s`,
             animationDuration: `${s.dur}s`,
-            borderRadius: i % 3 === 0 ? '50%' : i % 3 === 1 ? '0' : '16px',
+            borderRadius: i % 3 === 0 ? '50%' : i % 3 === 1 ? '3px' : '20px',
             transform: i % 3 === 1 ? 'rotate(45deg)' : undefined,
-            borderColor: i % 3 === 0 ? 'rgba(0,155,58,0.06)' : i % 3 === 1 ? 'rgba(252,221,9,0.05)' : 'rgba(218,18,26,0.04)',
+            borderColor: s.color,
           }}
         />
       ))}
@@ -182,13 +184,13 @@ function Home() {
         <FloatingShapes />
         <div className="hero-content">
           <img src="/imgs/lmd.svg" alt="Laeke Mariam Demessie" className="hero-lmd" />
-          <div className="hero-tag">Journalist &amp; Writer</div>
+          <div className="hero-tag">In Memoriam · Journalist &amp; Writer</div>
           <h1>
             <span className="line"><span>Laeke Mariam</span></span>
             <span className="line"><span className="accent">Demessie</span></span>
           </h1>
           <p className="hero-subtitle">
-            Covering Africa's most critical stories — from Ethiopia's ancient heritage to the Horn of Africa's peace struggles. Reporting where it matters most.
+            A tribute to an Ethiopian journalist whose fearless reporting from the Horn of Africa — from front-line war dispatches to Darfur peace talks — brought the region's most critical stories to the world. His voice endures through his work.
           </p>
           <div className="hero-cta">
             <a href="#articles" className="btn btn-primary magnetic">
@@ -232,7 +234,7 @@ function Home() {
           </div>
           <div className="about-text reveal reveal-right stagger-3">
             <div className="section-label">About</div>
-            <h3>Reporting from the heart of Africa</h3>
+            <h3>A Life Reporting from the Heart of Africa</h3>
             <p>{AboutData.bio}</p>
             <p>{AboutData.bio2}</p>
             <div className="about-stats">
@@ -253,7 +255,7 @@ function Home() {
         <div className="section-label">Selected Work</div>
         <h2 className="section-title reveal reveal-down">Articles &amp; Reports</h2>
         <p className="section-desc reveal reveal-down stagger-1">
-          A collection of reporting from across the African continent — covering politics, culture, science, and the ongoing struggle for peace and development.
+          A curated collection of Laeke's reporting from across the African continent — covering politics, culture, science, conflict, and the ongoing struggle for peace and development. Each piece bears witness to a journalist who reported where it mattered most.
         </p>
         <div className="articles-grid">
           {Cards}
@@ -326,18 +328,18 @@ function Home() {
         <div className="book-section">
           <div className="book-cover reveal reveal-scale stagger-2">
             <span style={{ textAlign: 'center', padding: '2rem' }}>
-              <div style={{ fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '1rem', opacity: 0.7 }}>Coming 2026</div>
-              <div style={{ fontSize: '2rem', fontWeight: 700, fontFamily: "var(--font-serif)" }}>LAKE</div>
+              <div style={{ fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '1rem', opacity: 0.7 }}>Collected Works</div>
+              <div style={{ fontSize: '2rem', fontWeight: 700, fontFamily: "var(--font-serif)" }}>LAEKE</div>
               <div style={{ fontSize: '0.8rem', marginTop: '1rem', opacity: 0.6, fontStyle: 'italic' }}>Stories from the Horn</div>
             </span>
           </div>
           <div className="book-info reveal reveal-right stagger-3">
-            <h3>A New Book</h3>
+            <h3>A Legacy in Print</h3>
             <p>
-              In-depth reporting and analysis compiled into book form — weaving together stories of conflict, culture, science, and the enduring spirit of a continent in transformation.
+              A posthumous collection of in-depth reporting and analysis compiled into book form — weaving together stories of conflict, culture, science, and the enduring spirit of a continent in transformation.
             </p>
             <p>
-              Drawing on decades of field reporting from Ethiopia, Sudan, Darfur, and the wider Horn of Africa.
+              Drawing on decades of field reporting from Ethiopia, Sudan, Darfur, and the wider Horn of Africa, this volume preserves Laeke's most essential dispatches for future generations.
             </p>
             <a href="#articles" className="btn btn-primary" style={{ marginTop: '1rem' }}>
               <span>Read Articles Now</span>

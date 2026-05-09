@@ -8,8 +8,9 @@ function Footer() {
           <img src="/imgs/lmd.svg" alt="Laeke Mariam Demessie" />
         </div>
         <p className="footer-text">
-          Journalist and writer covering Africa's most critical stories.<br />
-          Reporting where it matters most.
+          In loving memory of Laeke Mariam Demessie<br />
+          Ethiopian journalist whose voice brought Africa's stories to the world.<br />
+          His work lives on.
         </p>
         <div className="footer-links">
           <a href="#hero">Home</a>
@@ -20,7 +21,7 @@ function Footer() {
           <a href="#book">Book</a>
         </div>
         <p className="footer-copy">
-          &copy; {new Date().getFullYear()} Laeke Mariam Demessie. All rights reserved.
+          &copy; {new Date().getFullYear()} — Laeke Mariam Demessie. All rights reserved.
         </p>
       </div>
     </footer>
