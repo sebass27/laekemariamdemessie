@@ -328,7 +328,6 @@ function Home({ onTopicClick }) {
             />
           </div>
           <div className="book-info reveal reveal-right stagger-3">
-            <p className="book-subtitle">Communication Skills at Work — by Laeke Mariam Demessie</p>
             <p>
               Journalism as a profession has distinct characteristics that set it apart from literature in its
               purpose, content, writing style, and the presentation techniques used to engage readers.
@@ -337,8 +336,8 @@ function Home({ onTopicClick }) {
               piece to the reader.
             </p>
             <p className="book-origin">
-              Originally written in Amharic (<em>የጋዜጠኝነት ሙያ በዐላማው</em>), this practical guide
-              distills Laeke's decades of journalistic experience into an accessible, self-directed course
+              Originally written in Amharic, this practical guide distills Laeke's decades of 
+              journalistic experience into an accessible, self-directed course
               on effective communication — from crafting a news narrative to typography and the editorial process.
             </p>
             <div className="book-meta-grid">
@@ -347,18 +346,11 @@ function Home({ onTopicClick }) {
                 <span>Amharic · English</span>
               </div>
               <div className="book-meta-item">
-                <span className="meta-label">Published</span>
-                <span>2015 (ዓ.ም.)</span>
-              </div>
-              <div className="book-meta-item">
                 <span className="meta-label">Type</span>
                 <span>Ebook</span>
               </div>
-              <div className="book-meta-item">
-                <span className="meta-label">Store</span>
-                <span><a href="https://afroreadapp.com/Store/Bookdetail/856e5780-2d0f-4739-9326-5573fad99ded" target="_blank" rel="noopener noreferrer" className="meta-link">AfroRead →</a></span>
-              </div>
             </div>
+            <p></p>
             <a href="https://afroreadapp.com/Store/Bookdetail/856e5780-2d0f-4739-9326-5573fad99ded" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
               <span>Read the Book →</span>
             </a>
