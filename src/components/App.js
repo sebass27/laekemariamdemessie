@@ -319,47 +319,47 @@ function Home({ onTopicClick }) {
           <span className="amharic-title">ጋዜጠኝነት ያለአስተማሪ</span>
           <span className="english-title">Journalism Without a Teacher</span>
         </h2>
-        <p className="section-desc reveal reveal-down stagger-1">
-          Communication Skills at Work — by Laeke Mariam Demessie (2015 EC / ~2022–2023)
-        </p>
         <div className="book-section">
           <div className="book-cover reveal reveal-scale stagger-2">
             <img
               src="/imgs/book-cover.png"
-              alt="Laeke — Communication Skills at Work (book cover)"
+              alt="ጋዜጠኝነት ያለአስተማሪ — Journalism Without a Teacher"
               className="book-cover-img"
             />
           </div>
           <div className="book-info reveal reveal-right stagger-3">
-            <h3>Communication Skills at Work</h3>
-            <p className="book-author">by Laeke Mariam Demessie</p>
+            <p className="book-subtitle">Communication Skills at Work — by Laeke Mariam Demessie</p>
             <p>
-              Communication Skills at Work: In just three days, grasp the concept with its tools — even workplace
-              typography — in a writing style unlike any other. This book focuses on these and related topics,
-              covering the information process from how a news story is reported to how it is published, and guides
-              you step by step through professional workflows.
+              Journalism as a profession has distinct characteristics that set it apart from literature in its
+              purpose, content, writing style, and the presentation techniques used to engage readers.
+              This book explains and teaches step-by-step the professional workflow, covering every stage
+              from the initial gathering of news and information to the final distribution of the written
+              piece to the reader.
             </p>
-            <p>
+            <p className="book-origin">
               Originally written in Amharic (<em>የጋዜጠኝነት ሙያ በዐላማው</em>), this practical guide
-              distills Laeke's decades of journalistic experience into an accessible, self-directed course on
-              effective communication — from crafting a news narrative to understanding typography and the
-              editorial process.
+              distills Laeke's decades of journalistic experience into an accessible, self-directed course
+              on effective communication — from crafting a news narrative to typography and the editorial process.
             </p>
             <div className="book-meta-grid">
               <div className="book-meta-item">
-                <span className="meta-label">Subjects</span>
-                <span>Non Fiction · Communication · Self Development</span>
+                <span className="meta-label">Language</span>
+                <span>Amharic · English</span>
               </div>
               <div className="book-meta-item">
                 <span className="meta-label">Published</span>
-                <span>2015 (Ethiopian Calendar)</span>
+                <span>2015 (ዓ.ም.)</span>
               </div>
               <div className="book-meta-item">
                 <span className="meta-label">Type</span>
                 <span>Ebook</span>
               </div>
+              <div className="book-meta-item">
+                <span className="meta-label">Store</span>
+                <span><a href="https://afroreadapp.com/Store/Bookdetail/856e5780-2d0f-4739-9326-5573fad99ded" target="_blank" rel="noopener noreferrer" className="meta-link">AfroRead →</a></span>
+              </div>
             </div>
-            <a href="https://afroreadapp.com/Store/Bookdetail/856e5780-2d0f-4739-9326-5573fad99ded" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ marginTop: '1.5rem' }}>
+            <a href="https://afroreadapp.com/Store/Bookdetail/856e5780-2d0f-4739-9326-5573fad99ded" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
               <span>Read the Book →</span>
             </a>
           </div>
