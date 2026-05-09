@@ -315,7 +315,10 @@ function Home({ onTopicClick }) {
       <section className="section-container" id="book" style={{ paddingTop: '8rem' }}>
         <div className="section-number reveal" data-number="05">Book</div>
         <div className="section-label">Published Work</div>
-        <h2 className="section-title reveal reveal-down">Laeke</h2>
+        <h2 className="section-title reveal reveal-down">
+          <span className="amharic-title">ጋዜጠኝነት ያለአስተማሪ</span>
+          <span className="english-title">Journalism Without a Teacher</span>
+        </h2>
         <p className="section-desc reveal reveal-down stagger-1">
           Communication Skills at Work — by Laeke Mariam Demessie (2015 EC / ~2022–2023)
         </p>
