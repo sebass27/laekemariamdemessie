@@ -163,7 +163,7 @@ function TiltCard({ children, className, ...rest }) {
 /* ═══════════════════════════════════════════════════════════
    HERO SECTION
    ═══════════════════════════════════════════════════════════ */
-function Home() {
+function Home({ onTopicClick }) {
   const Cards = CardData.map((element, i) => (
     <TiltCard key={i}>
       <Card
@@ -202,13 +202,7 @@ function Home() {
             <a href="#about" className="btn btn-outline magnetic">About</a>
           </div>
         </div>
-        <div className="scroll-indicator">
-          <span>Scroll</span>
-          <div className="scroll-circle"></div>
-        </div>
       </section>
-
-      {/* Marquee */}
       <div className="marquee-wrapper">
         <div className="marquee-track">
           {['Ethiopian Affairs', 'Horn of Africa', 'Sudan & Darfur', 'Peace & Conflict', 'Biodiversity', 'Ancient Heritage', 'Telecommunications', 'De-mining', 'Bio-Piracy', 'Street Culture', 'African Science', 'Ge\'ez Script'].map((topic, i) => (
@@ -270,18 +264,18 @@ function Home() {
         <h2 className="section-title reveal reveal-down">Areas of Focus</h2>
         <p className="section-desc reveal reveal-down stagger-1">The themes that define this body of work.</p>
         <div className="topics reveal reveal-scale stagger-2">
-          <span className="topic-tag">Ethiopian Affairs</span>
-          <span className="topic-tag">Horn of Africa</span>
-          <span className="topic-tag">Sudan &amp; Darfur</span>
-          <span className="topic-tag">Peace &amp; Conflict</span>
-          <span className="topic-tag">Biodiversity</span>
-          <span className="topic-tag">Ancient Heritage</span>
-          <span className="topic-tag">Telecommunications</span>
-          <span className="topic-tag">De-mining</span>
-          <span className="topic-tag">Bio-Piracy</span>
-          <span className="topic-tag">Street Culture</span>
-          <span className="topic-tag">African Science</span>
-          <span className="topic-tag">Ge'ez Script</span>
+          <span className="topic-tag" onClick={() => onTopicClick('Ethiopian Affairs')}>Ethiopian Affairs</span>
+          <span className="topic-tag" onClick={() => onTopicClick('Horn of Africa')}>Horn of Africa</span>
+          <span className="topic-tag" onClick={() => onTopicClick('Sudan & Darfur')}>Sudan &amp; Darfur</span>
+          <span className="topic-tag" onClick={() => onTopicClick('Peace & Conflict')}>Peace &amp; Conflict</span>
+          <span className="topic-tag" onClick={() => onTopicClick('Biodiversity')}>Biodiversity</span>
+          <span className="topic-tag" onClick={() => onTopicClick('Ancient Heritage')}>Ancient Heritage</span>
+          <span className="topic-tag" onClick={() => onTopicClick('Telecommunications')}>Telecommunications</span>
+          <span className="topic-tag" onClick={() => onTopicClick('De-mining')}>De-mining</span>
+          <span className="topic-tag" onClick={() => onTopicClick('Bio-Piracy')}>Bio-Piracy</span>
+          <span className="topic-tag" onClick={() => onTopicClick('Street Culture')}>Street Culture</span>
+          <span className="topic-tag" onClick={() => onTopicClick('African Science')}>African Science</span>
+          <span className="topic-tag" onClick={() => onTopicClick("Ge'ez Script")}>Ge'ez Script</span>
         </div>
       </section>
 
@@ -374,6 +368,27 @@ function StatNumberWrapper({ stat }) {
 }
 
 /* ═══════════════════════════════════════════════════════════
+   TOPIC → ARTICLE KEYWORD MATCHING
+   ═══════════════════════════════════════════════════════════ */
+function getTopicKeywords(topic) {
+  const map = {
+    'Ethiopian Affairs': /ethiopia/i,
+    'Horn of Africa': /horn|eritrea|de-mining/i,
+    'Sudan & Darfur': /sudan|darfur/i,
+    'Peace & Conflict': /peace|conflict|collapse|talks|war/i,
+    'Biodiversity': /biodiversity|bio-piracy/i,
+    'Ancient Heritage': /ancient|partying|1992/i,
+    'Telecommunications': /telecom/i,
+    'De-mining': /de-mining/i,
+    'Bio-Piracy': /bio-piracy/i,
+    'Street Culture': /street/i,
+    'African Science': /science|scientist/i,
+    "Ge'ez Script": /alphabet|ge'ez|script/i,
+  };
+  return map[topic] || null;
+}
+
+/* ═══════════════════════════════════════════════════════════
    MAIN APP — Single-page layout (Home always renders)
    ═══════════════════════════════════════════════════════════ */
 class App extends Component {
@@ -382,6 +397,7 @@ class App extends Component {
     this.state = {
       scrollY: 0,
       navScrolled: false,
+      selectedTopic: null,
     };
     this.observer = null;
     this.cursorDot = null;
@@ -392,6 +408,12 @@ class App extends Component {
     this.setupObserver();
     this.setupCursor();
     window.addEventListener('scroll', this.handleScroll, { passive: true });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.selectedTopic && this.state.selectedTopic !== prevState.selectedTopic) {
+      this.highlightTopicCards();
+    }
   }
 
   componentWillUnmount() {
@@ -517,13 +539,50 @@ class App extends Component {
     }
   };
 
+  handleTopicClick = (topic) => {
+    // Clear previous highlights
+    document.querySelectorAll('.article-card.highlighted').forEach(card => {
+      card.classList.remove('highlighted');
+    });
+    // Scroll to articles section
+    const articles = document.getElementById('articles');
+    if (articles) {
+      articles.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    this.setState({ selectedTopic: topic });
+  };
+
+  highlightTopicCards = () => {
+    const { selectedTopic } = this.state;
+    if (!selectedTopic) return;
+    const keywords = getTopicKeywords(selectedTopic);
+    if (!keywords) return;
+    // Wait for scroll to settle, then highlight matching cards
+    setTimeout(() => {
+      document.querySelectorAll('.article-card').forEach(card => {
+        const title = card.querySelector('.article-title')?.textContent || '';
+        const excerpt = card.querySelector('.article-excerpt')?.textContent || '';
+        if (keywords.test(title) || keywords.test(excerpt)) {
+          card.classList.add('highlighted');
+        }
+      });
+      // Clear highlight after 3s
+      setTimeout(() => {
+        document.querySelectorAll('.article-card.highlighted').forEach(card => {
+          card.classList.remove('highlighted');
+        });
+        this.setState({ selectedTopic: null });
+      }, 3000);
+    }, 600);
+  };
+
   render() {
     return (
       <div className="app">
         <Particles />
         <ScrollProgress />
         <Nav scrollY={this.state.scrollY} navScrolled={this.state.navScrolled} />
-        <Home />
+        <Home onTopicClick={this.handleTopicClick} />
         <Footer />
         <Consent />
       </div>

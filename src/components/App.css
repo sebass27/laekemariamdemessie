@@ -476,56 +476,8 @@ body::before {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Scroll indicator — minimal */
-.scroll-indicator {
-  position: absolute;
-  bottom: 3rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  opacity: 0;
-  animation: revealUp 1.2s var(--ease-out-expo) 1.1s forwards;
-  z-index: 2;
-}
-
-.scroll-indicator span {
-  font-size: 0.65rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-}
-
-.scroll-circle {
-  width: 22px;
-  height: 22px;
-  border: 1.5px solid var(--text-dim);
-  border-radius: 50%;
-  position: relative;
-}
-
-.scroll-circle::after {
-  content: '';
-  position: absolute;
-  top: 4px;
-  left: 50%;
-  width: 2px;
-  height: 6px;
-  background: var(--eth-green);
-  border-radius: 2px;
-  transform: translateX(-50%);
-  animation: scrollBounce 2s ease-in-out infinite;
-}
-
-@keyframes scrollBounce {
-  0%, 100% { top: 3px; opacity: 1; }
-  50% { top: 11px; opacity: 0.3; }
-}
-
 /* ═══════════════════════════════════════════════════════════
-   FLOATING BACKGROUND SHAPES — Ethio Color Orbs
+   FLOATING BACKGROUND SHAPES
    ═══════════════════════════════════════════════════════════ */
 .hero-shapes {
   position: absolute;
@@ -894,6 +846,16 @@ body::before {
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--border-hover) inset;
 }
 
+.article-card.highlighted {
+  border-color: var(--eth-yellow);
+  box-shadow: 0 0 0 2px var(--eth-yellow), 0 0 40px var(--eth-yellow-glow);
+  animation: highlightPulse 0.6s var(--ease-spring) 3;
+}
+
+@keyframes highlightPulse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
 .article-source {
   display: inline-block;
   font-family: var(--font-mono);
