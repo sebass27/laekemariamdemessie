@@ -310,33 +310,54 @@ function Home({ onTopicClick }) {
       <div className="section-divider"></div>
 
       {/* ═══════════════════════════════════════════════════════════
-          BOOK — Coming Soon Section
+          BOOK — Published Work
           ═══════════════════════════════════════════════════════════ */}
       <section className="section-container" id="book" style={{ paddingTop: '8rem' }}>
         <div className="section-number reveal" data-number="05">Book</div>
         <div className="section-label">Published Work</div>
-        <h2 className="section-title reveal reveal-down">Coming Soon</h2>
+        <h2 className="section-title reveal reveal-down">Laeke</h2>
         <p className="section-desc reveal reveal-down stagger-1">
-          A comprehensive collection of Laeke Mariam Demessie's reporting from across the African continent.
+          Communication Skills at Work — by Laeke Mariam Demessie (2015 EC / ~2022–2023)
         </p>
         <div className="book-section">
           <div className="book-cover reveal reveal-scale stagger-2">
-            <span style={{ textAlign: 'center', padding: '2rem' }}>
-              <div style={{ fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase', marginBottom: '1rem', opacity: 0.7 }}>Collected Works</div>
-              <div style={{ fontSize: '2rem', fontWeight: 700, fontFamily: "var(--font-serif)" }}>LAEKE</div>
-              <div style={{ fontSize: '0.8rem', marginTop: '1rem', opacity: 0.6, fontStyle: 'italic' }}>Stories from the Horn</div>
-            </span>
+            <img
+              src="/imgs/book-cover.png"
+              alt="Laeke — Communication Skills at Work (book cover)"
+              className="book-cover-img"
+            />
           </div>
           <div className="book-info reveal reveal-right stagger-3">
-            <h3>A Legacy in Print</h3>
+            <h3>Communication Skills at Work</h3>
+            <p className="book-author">by Laeke Mariam Demessie</p>
             <p>
-              A posthumous collection of in-depth reporting and analysis compiled into book form — weaving together stories of conflict, culture, science, and the enduring spirit of a continent in transformation.
+              Communication Skills at Work: In just three days, grasp the concept with its tools — even workplace
+              typography — in a writing style unlike any other. This book focuses on these and related topics,
+              covering the information process from how a news story is reported to how it is published, and guides
+              you step by step through professional workflows.
             </p>
             <p>
-              Drawing on decades of field reporting from Ethiopia, Sudan, Darfur, and the wider Horn of Africa, this volume preserves Laeke's most essential dispatches for future generations.
+              Originally written in Amharic (<em>የጋዜጠኝነት ሙያ በዐላማው</em>), this practical guide
+              distills Laeke's decades of journalistic experience into an accessible, self-directed course on
+              effective communication — from crafting a news narrative to understanding typography and the
+              editorial process.
             </p>
-            <a href="#articles" className="btn btn-primary" style={{ marginTop: '1rem' }}>
-              <span>Read Articles Now</span>
+            <div className="book-meta-grid">
+              <div className="book-meta-item">
+                <span className="meta-label">Subjects</span>
+                <span>Non Fiction · Communication · Self Development</span>
+              </div>
+              <div className="book-meta-item">
+                <span className="meta-label">Published</span>
+                <span>2015 (Ethiopian Calendar)</span>
+              </div>
+              <div className="book-meta-item">
+                <span className="meta-label">Type</span>
+                <span>Ebook</span>
+              </div>
+            </div>
+            <a href="https://afroreadapp.com/Store/Bookdetail/856e5780-2d0f-4739-9326-5573fad99ded" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ marginTop: '1.5rem' }}>
+              <span>Read the Book →</span>
             </a>
           </div>
         </div>
