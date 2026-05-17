@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useRef, useState } from 'react';
+import React, { Component, useEffect, useRef, useState, createContext, useContext } from 'react';
 import './App.css';
 import Card from './listings/Card';
 import CardData from '../data/card-data.json';
@@ -7,6 +7,20 @@ import Consent from './page_components/cookie-consent';
 import Footer from './page_components/footer';
 import AboutData from '../data/about.json';
 import MediaData from '../data/media-data.json';
+
+/* ═══════════════════════════════════════════════════════════
+   THEME CONTEXT — Dark / Light mode
+   ═══════════════════════════════════════════════════════════ */
+const ThemeContext = createContext({ theme: 'dark', toggleTheme: () => {} });
+
+export function useTheme() {
+  return useContext(ThemeContext);
+}
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+}
 
 /* ═══════════════════════════════════════════════════════════
    FLOATING PARTICLES
@@ -410,10 +424,12 @@ function getTopicKeywords(topic) {
 class App extends Component {
   constructor(props) {
     super(props);
+    const saved = localStorage.getItem('theme') || 'dark';
     this.state = {
       scrollY: 0,
       navScrolled: false,
       selectedTopic: null,
+      theme: saved,
     };
     this.observer = null;
     this.cursorDot = null;
@@ -421,6 +437,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    applyTheme(this.state.theme);
     this.setupObserver();
     this.setupCursor();
     window.addEventListener('scroll', this.handleScroll, { passive: true });
@@ -555,6 +572,13 @@ class App extends Component {
     }
   };
 
+  toggleTheme = () => {
+    const newTheme = this.state.theme === 'dark' ? 'light' : 'dark';
+    this.setState({ theme: newTheme }, () => {
+      applyTheme(newTheme);
+    });
+  };
+
   handleTopicClick = (topic) => {
     // Clear previous highlights
     document.querySelectorAll('.article-card.highlighted').forEach(card => {
@@ -593,15 +617,21 @@ class App extends Component {
   };
 
   render() {
+    const { theme } = this.state;
+    const { toggleTheme } = this;
+    const themeValue = { theme, toggleTheme };
+
     return (
-      <div className="app">
-        <Particles />
-        <ScrollProgress />
-        <Nav scrollY={this.state.scrollY} navScrolled={this.state.navScrolled} />
-        <Home onTopicClick={this.handleTopicClick} />
-        <Footer />
-        <Consent />
-      </div>
+      <ThemeContext.Provider value={themeValue}>
+        <div className="app">
+          <Particles />
+          <ScrollProgress />
+          <Nav scrollY={this.state.scrollY} navScrolled={this.state.navScrolled} toggleTheme={toggleTheme} theme={theme} />
+          <Home onTopicClick={this.handleTopicClick} />
+          <Footer />
+          <Consent />
+        </div>
+      </ThemeContext.Provider>
     );
   }
 }
