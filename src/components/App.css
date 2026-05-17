@@ -1689,6 +1689,27 @@ body::before {
 [data-theme="light"] .theme-toggle:hover .theme-toggle-icon svg {
   stroke: #009B3A;
 }
+/* Dark mode — theme toggle must be visible on dark navbar */
+[data-theme="dark"] .theme-toggle {
+  color: #d4d4d8;
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="dark"] .theme-toggle:hover {
+  color: #009B3A;
+  border-color: #009B3A;
+  background: rgba(0, 155, 58, 0.1);
+}
+
+[data-theme="dark"] .theme-toggle-icon svg {
+  stroke: #d4d4d8;
+}
+
+[data-theme="dark"] .theme-toggle:hover .theme-toggle-icon svg {
+  stroke: #009B3A;
+}
+
 
 @media (max-width: 768px) {
   .theme-toggle {
