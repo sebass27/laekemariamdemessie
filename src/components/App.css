@@ -1016,6 +1016,20 @@ body::before {
   box-shadow: 0 8px 24px var(--eth-green-glow);
 }
 
+/* Light mode — topic tags need visible backgrounds */
+[data-theme="light"] .topic-tag {
+  background: #f0f0ec;
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #5a5a5a;
+}
+
+[data-theme="light"] .topic-tag:hover {
+  background: rgba(0, 155, 58, 0.08);
+  border-color: #009B3A;
+  color: #009B3A;
+}
+
+
 /* ═══════════════════════════════════════════════════════════
    MEDIA — Publication Cards
    ═══════════════════════════════════════════════════════════ */
