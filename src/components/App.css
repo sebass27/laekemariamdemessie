@@ -915,6 +915,26 @@ body::before {
   border: 1px solid rgba(238, 236, 228, 0.08);
 }
 
+/* Light mode — article sources need visible backgrounds */
+[data-theme="light"] .source-bbc {
+  background: rgba(0, 155, 58, 0.12);
+  color: #007a2e;
+  border-color: rgba(0, 155, 58, 0.25);
+}
+
+[data-theme="light"] .source-sudantribune {
+  background: rgba(252, 221, 9, 0.15);
+  color: #8a7600;
+  border-color: rgba(252, 221, 9, 0.3);
+}
+
+[data-theme="light"] .source-general {
+  background: #f0f0ec;
+  color: #5a5a5a;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+
 .article-title {
   font-family: var(--font-serif);
   font-size: 1.3rem;
