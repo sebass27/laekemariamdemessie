@@ -1656,11 +1656,14 @@ body::before {
   transform: rotate(20deg);
 }
 
-[data-theme="light"] .moon-icon {
+[data-theme="light"] .sun-icon {
   display: none;
 }
 
-[data-theme="dark"] .sun-icon,
+[data-theme="dark"] .moon-icon {
+  display: none;
+}
+
 :not([data-theme]) .sun-icon {
   display: none;
 }
