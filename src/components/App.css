@@ -1656,15 +1656,30 @@ body::before {
   transform: rotate(20deg);
 }
 
+/* Default (no theme set) — show sun (default is dark) */
+:not([data-theme]) .sun-icon {
+  display: flex;
+}
+
+:not([data-theme]) .moon-icon {
+  display: none;
+}
+
+/* Light mode — show moon */
 [data-theme="light"] .sun-icon {
   display: none;
 }
 
-[data-theme="dark"] .moon-icon {
-  display: none;
+[data-theme="light"] .moon-icon {
+  display: flex;
 }
 
-:not([data-theme]) .sun-icon {
+/* Dark mode — show sun */
+[data-theme="dark"] .sun-icon {
+  display: flex;
+}
+
+[data-theme="dark"] .moon-icon {
   display: none;
 }
 
