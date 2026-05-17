@@ -1642,6 +1642,16 @@ body::before {
   transition: transform 0.4s var(--ease-spring);
 }
 
+/* Dark mode — make sun icon more visible */
+[data-theme="dark"] .theme-toggle-icon svg {
+  stroke: #d4d4d8;
+}
+
+[data-theme="dark"] .theme-toggle:hover .theme-toggle-icon svg {
+  stroke: #009B3A;
+}
+
+
 .theme-toggle:hover .theme-toggle-icon svg {
   transform: rotate(20deg);
 }
