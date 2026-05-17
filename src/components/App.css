@@ -1660,3 +1660,29 @@ body::before {
     padding: 0.3rem 0.6rem;
   }
 }
+
+
+/* ═══════════════════════════════════════════════════════════
+   LIGHT MODE — Custom cursor adjustments
+   ═══════════════════════════════════════════════════════════ */
+[data-theme="light"] .cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: #1a1a1a;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .cursor-ring {
+  width: 36px;
+  height: 36px;
+  border-color: rgba(26, 26, 26, 0.4);
+  background: rgba(26, 26, 26, 0.03);
+}
+
+[data-theme="light"] .cursor-ring.hover {
+  border-color: rgba(0, 155, 58, 0.5);
+  background: rgba(0, 155, 58, 0.06);
+  width: 44px;
+  height: 44px;
+}
