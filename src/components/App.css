@@ -740,6 +740,7 @@ body::before {
   transition: all 0.9s var(--ease-out-expo) 0.3s;
   display: flex;
   justify-content: center;
+  margin-top: 3.5rem;
 }
 
 .about-image.visible {
@@ -749,7 +750,7 @@ body::before {
 
 .about-image-photo {
   width: 100%;
-  max-width: 280px;
+  max-width: 400px;
   border-radius: var(--radius);
   filter: drop-shadow(0 0 50px var(--eth-green-glow));
   animation: float 8s ease-in-out infinite;
