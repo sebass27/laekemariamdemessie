@@ -747,6 +747,14 @@ body::before {
   transform: translateX(0);
 }
 
+.about-image-photo {
+  width: 100%;
+  max-width: 280px;
+  border-radius: var(--radius);
+  filter: drop-shadow(0 0 50px var(--eth-green-glow));
+  animation: float 8s ease-in-out infinite;
+}
+
 .about-image-svg {
   width: 100%;
   max-width: 280px;

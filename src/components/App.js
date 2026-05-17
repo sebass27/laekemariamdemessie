@@ -238,7 +238,7 @@ function Home({ onTopicClick }) {
         <div className="section-number reveal" data-number="01">About</div>
         <div className="about-grid">
           <div className="about-image reveal reveal-left stagger-2">
-            <img src="/imgs/lmd.svg" alt="Laeke Mariam Demessie" className="about-image-svg" />
+            <img src="/imgs/laeke.png" alt="Laeke Mariam Demessie" className="about-image-photo" />
           </div>
           <div className="about-text reveal reveal-right stagger-3">
             <div className="section-label">About</div>
