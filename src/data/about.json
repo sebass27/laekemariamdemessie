@@ -1,5 +1,12 @@
-[
-    {
-        
-    }
-]
+{
+  "name": "Laeke Mariam Demessie",
+  "tagline": "Journalist & Writer (d. 2024)",
+  "bio": "Laeke Mariam Demessie was an Ethiopian journalist whose work spanned the breadth of African affairs — from front-line reporting on the Ethiopia-Eritrea border war for the BBC's 'Battle in the Horn' series, to covering the Darfur peace process for the Associated Press, to chronicling telecommunications, biodiversity, and the preservation of Ethiopia's ancient Ge'ez script.",
+  "bio2": "With bylines at BBC News, Associated Press, IPS News, Sudan Tribune, and major international publications, Laeke spent decades bringing underreported stories from Ethiopia, Sudan, and the wider African continent to a global audience. His AP dispatches were syndicated to newspapers across the United States. He was also a contributor to academic publications through the Forum for Social Studies (FSS-Ethiopia), with research on environmental communication, street culture, and bio-piracy. He passed away in 2024, leaving behind a legacy of courageous, ground-level journalism from one of the world's most complex regions.",
+  "stats": [
+    { "number": "14+", "label": "Published Articles" },
+    { "number": "BBC", "label": "Correspondent" },
+    { "number": "AP", "label": "Wire Reporter" },
+    { "number": "Ethiopia", "label": "Based in Addis" }
+  ]
+}

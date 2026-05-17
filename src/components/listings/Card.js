@@ -1,36 +1,19 @@
 import React from 'react';
 
-
-
-class Card extends React.Component {
-  render() {
-    return (
-      <div className="row">
-        <div className="col s12 m10 l8 push-xs2 push-s2 push-m2 push-l2 pull-xs2 pull-s2 pull-m2 pull-l2">
-          <div className= "card">
-            <div className="card horizontal"> 
-              <div className="title-grid">
-                <div className="img-container">
-                  <div className="center">
-                    <img src={this.props.imageLink} alt={this.props.title}/>
-                  </div>
-                </div>
-               
-                <span className="card-title">{this.props.title}</span>
-              </div> 
-              <div className="card-content yellow accent-1">
-                
-                <span className= "flow-text">{this.props.text}</span>
-              </div>
-            </div>
-            <div className="card-action purple">
-                <a href={this.props.pageLink} className="link">Link to Article</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+function Card({ pageLink, imageLink, title, text, source, sourceClass, className = 'article-card reveal' }) {
+  return (
+    <div className={className}>
+      <span className={`article-source ${sourceClass}`}>{source}</span>
+      <h3 className="article-title">{title}</h3>
+      <p className="article-excerpt">{text}</p>
+      <a href={pageLink} target="_blank" rel="noopener noreferrer" className="article-link">
+        Read Article
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  );
 }
 
 export default Card;

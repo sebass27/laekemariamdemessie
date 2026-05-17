@@ -1,25 +1,33 @@
+import React, { useState, useEffect } from "react";
 
-import React, { Component } from "react";
-import CookieConsent, { Cookies } from "react-cookie-consent";
+function Consent() {
+  const [accepted, setAccepted] = useState(false);
 
-class Consent extends Component {
-    
-    render(){
-        Cookies.set("test", "nice"); 
-        return (
-            <React.Fragment>
-                <CookieConsent
-                    enableDeclineButton
-                    location="bottom"
-                    buttonStyle= {{ color: "#4e503b", fontSize: "13px" }}
-                    style= {{ background: "#2B373B" }} 
-                    expires={150}
-                > 
-                This website uses cookies to enhance the user experience.
-                </CookieConsent>
-            </React.Fragment>
-        )
-    }   
+  useEffect(() => {
+    const hasAccepted = localStorage.getItem('cookie-consent');
+    if (hasAccepted) {
+      setAccepted(true);
+    }
+  }, []);
+
+  const handleAccept = () => {
+    localStorage.setItem('cookie-consent', 'true');
+    setAccepted(true);
+  };
+
+  const handleDismiss = () => {
+    setAccepted(true);
+  };
+
+  if (accepted) return null;
+
+  return (
+    <div className="cookie-consent">
+      <p>We use minimal cookies to ensure the best experience. No personal data is collected.</p>
+      <button className="cookie-accept" onClick={handleAccept}>Accept</button>
+      <button className="cookie-dismiss" onClick={handleDismiss}>Dismiss</button>
+    </div>
+  );
 }
 
 export default Consent;

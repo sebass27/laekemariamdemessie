@@ -1,31 +1,639 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useRef, useState, createContext, useContext } from 'react';
 import './App.css';
 import Card from './listings/Card';
 import CardData from '../data/card-data.json';
-import Nav from './page_components/navbar'
+import Nav from './page_components/navbar';
 import Consent from './page_components/cookie-consent';
+import Footer from './page_components/footer';
+import AboutData from '../data/about.json';
+import MediaData from '../data/media-data.json';
 
-class Home extends Component {
-  render() {
-    // cards are mapped with page link,image, title and summary text
-    const Cards = CardData.map(element => {
-      return (
-        <Card 
-          pageLink={element.pageLink}
-          imageLink={element.imageLink}
-          title={element.title}
-          text={element.text}
+/* ═══════════════════════════════════════════════════════════
+   THEME CONTEXT — Dark / Light mode
+   ═══════════════════════════════════════════════════════════ */
+const ThemeContext = createContext({ theme: 'dark', toggleTheme: () => {} });
+
+export function useTheme() {
+  return useContext(ThemeContext);
+}
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FLOATING PARTICLES
+   ═══════════════════════════════════════════════════════════ */
+function Particles() {
+  const particles = Array.from({ length: 35 }, (_, i) => ({
+    id: i,
+    left: Math.random() * 100,
+    delay: Math.random() * 14,
+    duration: 12 + Math.random() * 16,
+    size: 1 + Math.random() * 2.5,
+  }));
+  return (
+    <div className="particles-container">
+      {particles.map(p => (
+        <div
+          key={p.id}
+          className="particle"
+          style={{
+            left: `${p.left}%`,
+            animationDelay: `${p.delay}s`,
+            animationDuration: `${p.duration}s`,
+            width: p.size,
+            height: p.size,
+          }}
         />
-      )
+      ))}
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
+   SCROLL PROGRESS BAR
+   ═══════════════════════════════════════════════════════════ */
+function ScrollProgress() {
+  const [progress, setProgress] = useState(0);
+  useEffect(() => {
+    const update = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(docHeight > 0 ? (scrollTop / docHeight) * 100 : 0);
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    return () => window.removeEventListener('scroll', update);
+  }, []);
+  return <div className="scroll-progress" style={{ width: `${progress}%` }} />;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FLOATING SHAPES
+   ═══════════════════════════════════════════════════════════ */
+const shapes = [
+  { size: 140, top: '8%', left: '4%', delay: 0, dur: 24, color: 'rgba(0,155,58,0.07)' },
+  { size: 60, top: '18%', right: '8%', delay: -3, dur: 20, color: 'rgba(252,221,9,0.06)' },
+  { size: 90, top: '52%', left: '8%', delay: -7, dur: 26, color: 'rgba(218,18,26,0.05)' },
+  { size: 160, top: '62%', right: '4%', delay: -5, dur: 28, color: 'rgba(0,155,58,0.06)' },
+  { size: 45, top: '42%', left: '2%', delay: -10, dur: 18, color: 'rgba(252,221,9,0.07)' },
+  { size: 75, bottom: '12%', left: '32%', delay: -2, dur: 22, color: 'rgba(218,18,26,0.05)' },
+  { size: 55, top: '32%', right: '18%', delay: -8, dur: 23, color: 'rgba(0,155,58,0.06)' },
+  { size: 100, bottom: '28%', right: '12%', delay: -12, dur: 30, color: 'rgba(252,221,9,0.04)' },
+  { size: 35, top: '70%', left: '15%', delay: -4, dur: 19, color: 'rgba(218,18,26,0.06)' },
+];
+
+function FloatingShapes() {
+  return (
+    <div className="hero-shapes">
+      {shapes.map((s, i) => (
+        <div
+          key={i}
+          className="hero-shape"
+          style={{
+            width: s.size,
+            height: s.size,
+            top: s.top,
+            left: s.left || undefined,
+            right: s.right || undefined,
+            bottom: s.bottom || undefined,
+            animationDelay: `${s.delay}s`,
+            animationDuration: `${s.dur}s`,
+            borderRadius: i % 3 === 0 ? '50%' : i % 3 === 1 ? '3px' : '20px',
+            transform: i % 3 === 1 ? 'rotate(45deg)' : undefined,
+            borderColor: s.color,
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
+   ANIMATED COUNTER
+   ═══════════════════════════════════════════════════════════ */
+function AnimatedCounter({ number, visible }) {
+  const [current, setCurrent] = useState(0);
+  const num = parseInt(number, 10);
+  const hasLetter = /\D/.test(number);
+  const cleanNum = hasLetter ? parseInt(number.replace(/\D/g, ''), 10) : num;
+  const suffix = hasLetter ? number.replace(/\d/g, '') : '';
+
+  useEffect(() => {
+    if (!visible) return;
+    let start = null;
+    const duration = 2000;
+    const animate = (ts) => {
+      if (!start) start = ts;
+      const elapsed = ts - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 4);
+      setCurrent(Math.round(cleanNum * eased));
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+  }, [visible, cleanNum]);
+
+  if (isNaN(cleanNum)) {
+    return <div className="stat-number">{number}</div>;
+  }
+
+  return <div className="stat-number">{current}{suffix}</div>;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TILT CARD
+   ═══════════════════════════════════════════════════════════ */
+function TiltCard({ children, className, ...rest }) {
+  const ref = useRef(null);
+  const [style, setStyle] = useState({});
+
+  const handleMouseMove = (e) => {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    setStyle({
+      transform: `perspective(1000px) rotateX(${y * -6}deg) rotateY(${x * 6}deg) translateY(-3px) scale(1.005)`,
+      transition: 'transform 0.15s ease-out',
     });
+  };
+
+  const handleMouseLeave = () => {
+    setStyle({
+      transform: 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)',
+      transition: 'transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)',
+    });
+  };
+
+  return (
+    <div ref={ref} className={className} style={style} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} {...rest}>
+      {children}
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
+   HERO SECTION
+   ═══════════════════════════════════════════════════════════ */
+function Home({ onTopicClick }) {
+  const Cards = CardData.map((element, i) => (
+    <TiltCard key={i}>
+      <Card
+        pageLink={element.pageLink}
+        imageLink={element.imageLink}
+        title={element.title}
+        text={element.text}
+        source={element.source}
+        sourceClass={element.sourceClass}
+        className={`article-card reveal stagger-${i + 1}`}
+      />
+    </TiltCard>
+  ));
+
+  return (
+    <>
+      <section className="hero" id="hero">
+        <FloatingShapes />
+        <div className="hero-content">
+          <img src="/imgs/lmd.svg" alt="Laeke Mariam Demessie" className="hero-lmd" />
+          <div className="hero-tag">In Memoriam · Journalist &amp; Writer</div>
+          <h1>
+            <span className="line"><span>Laeke Mariam</span></span>
+            <span className="line"><span className="accent">Demessie</span></span>
+          </h1>
+          <p className="hero-subtitle">
+            A tribute to an Ethiopian journalist whose fearless reporting from the Horn of Africa — from front-line war dispatches to Darfur peace talks — brought the region's most critical stories to the world. His voice endures through his work.
+          </p>
+          <div className="hero-cta">
+            <a href="#articles" className="btn btn-primary magnetic">
+              <span>Read Articles</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M7 17l9.2-9.2M17 17V7H7" />
+              </svg>
+            </a>
+            <a href="#about" className="btn btn-outline magnetic">About</a>
+          </div>
+        </div>
+      </section>
+      <div className="marquee-wrapper">
+        <div className="marquee-track">
+          {['Ethiopian Affairs', 'Horn of Africa', 'Sudan & Darfur', 'Peace & Conflict', 'Biodiversity', 'Ancient Heritage', 'Telecommunications', 'De-mining', 'Bio-Piracy', 'Street Culture', 'African Science', 'Ge\'ez Script'].map((topic, i) => (
+            <React.Fragment key={i}>
+              <span className="marquee-item">{topic}</span>
+              <span className="sep">✦</span>
+            </React.Fragment>
+          ))}
+          {['Ethiopian Affairs', 'Horn of Africa', 'Sudan & Darfur', 'Peace & Conflict', 'Biodiversity', 'Ancient Heritage', 'Telecommunications', 'De-mining', 'Bio-Piracy', 'Street Culture', 'African Science', 'Ge\'ez Script'].map((topic, i) => (
+            <React.Fragment key={`dup-${i}`}>
+              <span className="marquee-item">{topic}</span>
+              <span className="sep">✦</span>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+
+      <section className="section-container" id="about">
+        <div className="section-number reveal" data-number="01">About</div>
+        <div className="about-grid">
+          <div className="about-image reveal reveal-left stagger-2">
+            <img src="/imgs/laeke.png" alt="Laeke Mariam Demessie" className="about-image-photo" />
+          </div>
+          <div className="about-text reveal reveal-right stagger-3">
+            <div className="section-label">About</div>
+            <h3>A Life Reporting from the Heart of Africa</h3>
+            <p>{AboutData.bio}</p>
+            <p>{AboutData.bio2}</p>
+            <div className="about-stats">
+              {AboutData.stats.map((stat, i) => (
+                <div key={i} className="stat-item reveal reveal-up stagger-4">
+                  <StatNumberWrapper stat={stat} />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="section-divider"></div>
+
+      <section className="section-container" id="articles">
+        <div className="section-number reveal" data-number="02">Articles</div>
+        <div className="section-label">Selected Work</div>
+        <h2 className="section-title reveal reveal-down">Articles &amp; Reports</h2>
+        <p className="section-desc reveal reveal-down stagger-1">
+          A curated collection of Laeke's reporting from across the African continent — covering politics, culture, science, conflict, and the ongoing struggle for peace and development. Each piece bears witness to a journalist who reported where it mattered most.
+        </p>
+        <div className="articles-grid">
+          {Cards}
+        </div>
+      </section>
+
+      <div className="section-divider"></div>
+
+      <section className="section-container" id="topics">
+        <div className="section-number reveal" data-number="03">Topics</div>
+        <div className="section-label">Coverage</div>
+        <h2 className="section-title reveal reveal-down">Areas of Focus</h2>
+        <p className="section-desc reveal reveal-down stagger-1">The themes that define this body of work.</p>
+        <div className="topics reveal reveal-scale stagger-2">
+          <span className="topic-tag" onClick={() => onTopicClick('Ethiopian Affairs')}>Ethiopian Affairs</span>
+          <span className="topic-tag" onClick={() => onTopicClick('Horn of Africa')}>Horn of Africa</span>
+          <span className="topic-tag" onClick={() => onTopicClick('Sudan & Darfur')}>Sudan &amp; Darfur</span>
+          <span className="topic-tag" onClick={() => onTopicClick('Peace & Conflict')}>Peace &amp; Conflict</span>
+          <span className="topic-tag" onClick={() => onTopicClick('Biodiversity')}>Biodiversity</span>
+          <span className="topic-tag" onClick={() => onTopicClick('Ancient Heritage')}>Ancient Heritage</span>
+          <span className="topic-tag" onClick={() => onTopicClick('Telecommunications')}>Telecommunications</span>
+          <span className="topic-tag" onClick={() => onTopicClick('De-mining')}>De-mining</span>
+          <span className="topic-tag" onClick={() => onTopicClick('Bio-Piracy')}>Bio-Piracy</span>
+          <span className="topic-tag" onClick={() => onTopicClick('Street Culture')}>Street Culture</span>
+          <span className="topic-tag" onClick={() => onTopicClick('African Science')}>African Science</span>
+          <span className="topic-tag" onClick={() => onTopicClick("Ge'ez Script")}>Ge'ez Script</span>
+        </div>
+      </section>
+
+      <div className="section-divider"></div>
+
+      {/* ═══════════════════════════════════════════════════════════
+          MEDIA & PUBLICATIONS — Combined Section
+          ═══════════════════════════════════════════════════════════ */}
+      <section className="section-container" id="media" style={{ paddingTop: '8rem' }}>
+        <div className="section-number reveal" data-number="04">Media</div>
+        <div className="section-label">Press</div>
+        <h2 className="section-title reveal reveal-down">Media &amp; Publications</h2>
+        <p className="section-desc reveal reveal-down stagger-1">
+          Laeke's work has been featured across major international publications and broadcast networks.
+        </p>
+        <div className="media-grid">
+          {MediaData.map((item, i) => (
+            <TiltCard
+              key={i}
+              className={`media-card reveal stagger-${i + 1}`}
+            >
+              <div className="card-type">{item.type}</div>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+              <a href={item.link} target="_blank" rel="noopener noreferrer" className="card-link">
+                Visit →
+              </a>
+            </TiltCard>
+          ))}
+        </div>
+      </section>
+      <div className="section-divider"></div>
+
+      {/* ═══════════════════════════════════════════════════════════
+          BOOK — Published Work
+          ═══════════════════════════════════════════════════════════ */}
+      <section className="section-container" id="book" style={{ paddingTop: '8rem' }}>
+        <div className="section-number reveal" data-number="05">Book</div>
+        <div className="section-label">Published Work</div>
+        <h2 className="section-title reveal reveal-down">
+          <span className="amharic-title">ጋዜጠኝነት ያለአስተማሪ</span>
+          <span className="english-title">Journalism Without a Teacher</span>
+        </h2>
+        <div className="book-section">
+          <div className="book-cover reveal reveal-scale stagger-2">
+            <img
+              src="/imgs/book-cover.png"
+              alt="ጋዜጠኝነት ያለአስተማሪ — Journalism Without a Teacher"
+              className="book-cover-img"
+            />
+          </div>
+          <div className="book-info reveal reveal-right stagger-3">
+            <p>
+              Journalism as a profession has distinct characteristics that set it apart from literature in its
+              purpose, content, writing style, and the presentation techniques used to engage readers.
+              This book explains and teaches step-by-step the professional workflow, covering every stage
+              from the initial gathering of news and information to the final distribution of the written
+              piece to the reader.
+            </p>
+            <p className="book-origin">
+              Originally written in Amharic, this practical guide distills Laeke's decades of 
+              journalistic experience into an accessible, self-directed course
+              on effective communication — from crafting a news narrative to typography and the editorial process.
+            </p>
+            <div className="book-meta-grid">
+              <div className="book-meta-item">
+                <span className="meta-label">Language</span>
+                <span>Amharic · English</span>
+              </div>
+              <div className="book-meta-item">
+                <span className="meta-label">Type</span>
+                <span>Ebook</span>
+              </div>
+            </div>
+            <p></p>
+            <a href="https://afroreadapp.com/Store/Bookdetail/856e5780-2d0f-4739-9326-5573fad99ded" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+              <span>Read the Book →</span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <div className="section-divider"></div>
+    </>
+  );
+}
+
+function StatNumberWrapper({ stat }) {
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
+      { threshold: 0.5 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref}>
+      <AnimatedCounter number={stat.number} visible={visible} />
+      <div className="stat-label">{stat.label}</div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════
+   TOPIC → ARTICLE KEYWORD MATCHING
+   ═══════════════════════════════════════════════════════════ */
+function getTopicKeywords(topic) {
+  const map = {
+    'Ethiopian Affairs': /ethiopia/i,
+    'Horn of Africa': /horn|eritrea|de-mining/i,
+    'Sudan & Darfur': /sudan|darfur/i,
+    'Peace & Conflict': /peace|conflict|collapse|talks|war/i,
+    'Biodiversity': /biodiversity|bio-piracy/i,
+    'Ancient Heritage': /ancient|partying|1992/i,
+    'Telecommunications': /telecom/i,
+    'De-mining': /de-mining/i,
+    'Bio-Piracy': /bio-piracy/i,
+    'Street Culture': /street/i,
+    'African Science': /science|scientist/i,
+    "Ge'ez Script": /alphabet|ge'ez|script/i,
+  };
+  return map[topic] || null;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   MAIN APP — Single-page layout (Home always renders)
+   ═══════════════════════════════════════════════════════════ */
+class App extends Component {
+  constructor(props) {
+    super(props);
+    const saved = localStorage.getItem('theme') || 'dark';
+    this.state = {
+      scrollY: 0,
+      navScrolled: false,
+      selectedTopic: null,
+      theme: saved,
+    };
+    this.observer = null;
+    this.cursorDot = null;
+    this.cursorRing = null;
+  }
+
+  componentDidMount() {
+    applyTheme(this.state.theme);
+    this.setupObserver();
+    this.setupCursor();
+    window.addEventListener('scroll', this.handleScroll, { passive: true });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.selectedTopic && this.state.selectedTopic !== prevState.selectedTopic) {
+      this.highlightTopicCards();
+    }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+    if (this.observer) this.observer.disconnect();
+    if (this.cursorDot) this.cursorDot.remove();
+    if (this.cursorRing) this.cursorRing.remove();
+  }
+
+  setupObserver = () => {
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.05, rootMargin: '0px 0px -30px 0px' }
+    );
+    reveals.forEach(el => revealObserver.observe(el));
+
+    const numbers = document.querySelectorAll('.section-number');
+    const numObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    numbers.forEach(el => numObserver.observe(el));
+
+    const labels = document.querySelectorAll('.section-label');
+    const labelObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      },
+      { threshold: 0.5 }
+    );
+    labels.forEach(el => labelObserver.observe(el));
+
+    const titles = document.querySelectorAll('.section-title');
+    const titleObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      },
+      { threshold: 0.3 }
+    );
+    titles.forEach(el => titleObserver.observe(el));
+
+    const descs = document.querySelectorAll('.section-desc');
+    const descObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      },
+      { threshold: 0.3 }
+    );
+    descs.forEach(el => descObserver.observe(el));
+  };
+
+  setupCursor = () => {
+    this.cursorDot = document.createElement('div');
+    this.cursorDot.className = 'cursor-dot';
+    this.cursorRing = document.createElement('div');
+    this.cursorRing.className = 'cursor-ring';
+    document.body.appendChild(this.cursorDot);
+    document.body.appendChild(this.cursorRing);
+
+    let timeout = null;
+    const moveCursor = (e) => {
+      this.cursorDot.style.left = `${e.clientX}px`;
+      this.cursorDot.style.top = `${e.clientY}px`;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        this.cursorRing.style.left = `${e.clientX}px`;
+        this.cursorRing.style.top = `${e.clientY}px`;
+      }, 50);
+    };
+
+    const showRing = () => {
+      this.cursorRing.classList.add('hover');
+    };
+
+    const hideRing = () => {
+      this.cursorRing.classList.remove('hover');
+    };
+
+    window.addEventListener('mousemove', moveCursor);
+
+    const hoverTargets = document.querySelectorAll('a, button, .topic-tag, .article-card, .media-card, input');
+    hoverTargets.forEach(el => {
+      el.addEventListener('mouseenter', showRing);
+      el.addEventListener('mouseleave', hideRing);
+    });
+
+    // Re-check for dynamically added elements
+    setInterval(() => {
+      document.querySelectorAll('a, button, .topic-tag, .article-card, .media-card, input').forEach(el => {
+        if (!el.dataset.cursorBound) {
+          el.dataset.cursorBound = 'true';
+          el.addEventListener('mouseenter', showRing);
+          el.addEventListener('mouseleave', hideRing);
+        }
+      });
+    }, 1000);
+  };
+
+  handleScroll = () => {
+    const scrollY = window.scrollY;
+    const navScrolled = scrollY > 80;
+    if (this.state.scrollY !== scrollY) {
+      this.setState({ scrollY, navScrolled });
+    }
+  };
+
+  toggleTheme = () => {
+    const newTheme = this.state.theme === 'dark' ? 'light' : 'dark';
+    this.setState({ theme: newTheme }, () => {
+      applyTheme(newTheme);
+    });
+  };
+
+  handleTopicClick = (topic) => {
+    // Clear previous highlights
+    document.querySelectorAll('.article-card.highlighted').forEach(card => {
+      card.classList.remove('highlighted');
+    });
+    // Scroll to articles section
+    const articles = document.getElementById('articles');
+    if (articles) {
+      articles.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    this.setState({ selectedTopic: topic });
+  };
+
+  highlightTopicCards = () => {
+    const { selectedTopic } = this.state;
+    if (!selectedTopic) return;
+    const keywords = getTopicKeywords(selectedTopic);
+    if (!keywords) return;
+    // Wait for scroll to settle, then highlight matching cards
+    setTimeout(() => {
+      document.querySelectorAll('.article-card').forEach(card => {
+        const title = card.querySelector('.article-title')?.textContent || '';
+        const excerpt = card.querySelector('.article-excerpt')?.textContent || '';
+        if (keywords.test(title) || keywords.test(excerpt)) {
+          card.classList.add('highlighted');
+        }
+      });
+      // Clear highlight after 3s
+      setTimeout(() => {
+        document.querySelectorAll('.article-card.highlighted').forEach(card => {
+          card.classList.remove('highlighted');
+        });
+        this.setState({ selectedTopic: null });
+      }, 3000);
+    }, 600);
+  };
+
+  render() {
+    const { theme } = this.state;
+    const { toggleTheme } = this;
+    const themeValue = { theme, toggleTheme };
+
     return (
-      <React.Fragment>
-        <Nav/>
-        {Cards}
-        <Consent/> 
-      </React.Fragment>
+      <ThemeContext.Provider value={themeValue}>
+        <div className="app">
+          <Particles />
+          <ScrollProgress />
+          <Nav scrollY={this.state.scrollY} navScrolled={this.state.navScrolled} toggleTheme={toggleTheme} theme={theme} />
+          <Home onTopicClick={this.handleTopicClick} />
+          <Footer />
+          <Consent />
+        </div>
+      </ThemeContext.Provider>
     );
   }
 }
 
-export default Home;
+export default App;

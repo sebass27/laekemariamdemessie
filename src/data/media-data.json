@@ -1,8 +1,38 @@
 [
-    {
-
-    },
-    {
-        
-    }
+  {
+    "title": "BBC News",
+    "description": "Contributing correspondent covering Ethiopian and Horn of Africa affairs, including de-mining, ancient heritage, telecommunications, and front-line reporting during the Ethiopia-Eritrea border war for the 'Battle in the Horn' special report series.",
+    "link": "http://news.bbc.co.uk/2/hi/africa/",
+    "type": "Broadcast & Online"
+  },
+  {
+    "title": "Associated Press (AP)",
+    "description": "Wire reporter from Addis Ababa covering the Darfur peace process and Sudan conflict. His dispatches were syndicated to dozens of American newspapers including the Tampa Tribune, Tulsa World, Montana Standard, and Lawrence Journal-World.",
+    "link": "https://apnews.com/",
+    "type": "Wire Service"
+  },
+  {
+    "title": "Sudan Tribune",
+    "description": "Reporting on Sudan and Darfur peace processes, conflict analysis, and regional diplomacy from Addis Ababa.",
+    "link": "https://www.sudantribune.com/",
+    "type": "Online Publication"
+  },
+  {
+    "title": "IPS News",
+    "description": "Contributing to coverage of African science, biodiversity, genetic rights advocacy, and regional economic developments including Eritrea's monetary independence.",
+    "link": "http://www.ipsnews.net/",
+    "type": "News Agency"
+  },
+  {
+    "title": "Questia Magazine",
+    "description": "Published analytical pieces on Ethiopian telecommunications infrastructure and development challenges.",
+    "link": "https://www.questia.com/",
+    "type": "Academic"
+  },
+  {
+    "title": "FSS-Ethiopia (Forum for Social Studies)",
+    "description": "Academic contributor to publications on environmental protection, mass communication, and development in Ethiopia. His work appeared in the volume 'Environment and Development in Ethiopia.'",
+    "link": "https://fss-ethiopia.org/",
+    "type": "Academic Research"
+  }
 ]

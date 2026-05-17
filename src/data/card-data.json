@@ -1,68 +1,114 @@
 [
-    {
-        "pageLink": "http://www.ipsnews.net/1997/04/science-africa-loses-scientist-and-genetic-rights-campaigner/",
-        "imageLink": "/imgs/lmd.svg",
-        "title": "SCIENCE: Africa Loses Scientist and Genetic Rights Campaigner",
-        "text": " With the death of Dr. Akilu Lemma, Africa has lost a scientist whose life and work illustrated the difficulties faced by African researchers and Africa..."
-    },
-    {
-        "pageLink": "https://www.questia.com/magazine/1G1-20352666/ethiopia-stuck-in-telecoms-stone-age",
-        "imageLink": "/imgs/lmd.svg",
-        "title": "Ethiopia Stuck in Telecoms Stone-Age",
-        "text": " Ethiopia has only 150,000 telephone lines for a population of 56 million; and only 1,300 internet subscribers. In telecommunication terms, this is a disaster. Privatisation could be a solution but it seems the government is..."
-    },
-    {
-        "pageLink": "http://news.bbc.co.uk/2/hi/africa/582697.stm",
-        "imageLink": "/imgs/bbc.svg",
-        "title": "Ethiopia: Partying like it's 1992",
-        "text": " As the western world approaches the millennium, according to the Ethiopian calendar it is still 1992..."
-    },
-    {
-        "pageLink": "http://news.bbc.co.uk/2/hi/africa/827712.stm",
-        "imageLink": "/imgs/bbc.svg",
-        "title": "De-mining in the Horn",
-        "text": " A year ago, Ethiopian journalist Laeke Mariam Demessie visited the front line in the war with Eritrea - recently he returned to see the Ethiopian army consolidate its control over territory captured..."
-    },
-    {
-        "pageLink": "http://news.bbc.co.uk/2/hi/africa/609217.stm",
-        "imageLink": "/imgs/bbc.svg",
-        "title": "Ancient alphabet enters cyber age",
-        "text": " The alphabet used in Ethiopia and Eritrea is Africa's oldest. Laeke Mariam Demessie reports on the efforts to get the 276-letter script ..."
-    },
-    {
-        "pageLink": "https://www.sudantribune.com/spip.php?article4021",
-        "imageLink": "/imgs/lmd.svg",
-        "title": "Sudan, rebels work to set agenda for talks",
-        "text": " Sudan and two rebel groups worked on Friday to set an agenda for talks aimed at ending 17 months of fighting ..."
-    },
-    {
-        "pageLink": "https://www.sudantribune.com/spip.php?article4034",
-        "imageLink": "/imgs/lmd.svg",
-        "title": "Darfur peace talks collapse as rebels walk out",
-        "text": "African Union-sponsored talks to end the slaughter of tens of thousands of people in Sudan’s western Darfur region ..."
-    },
-    {
-        "pageLink": "https://www.sudantribune.com/spip.php?article4047",
-        "imageLink": "/imgs/lmd.svg",
-        "title": "Talks to end slaughter in Sudan’s western Darfur region put on hold indefinitely",
-        "text": "Talks to end the unbridled violence that has killed tens of thousands of people in Sudan’s western Darfur region collapsed Saturday ..."
-    },
-    {
-        "pageLink": "https://archive.sltrib.com/article.php?id=2377293&itype=NGPSID",
-        "imageLink": "/imgs/lmd.svg",
-        "title": "Sudan and rebels begin peace talks",
-        "text": "Sudanese officials and rebels began peace talks Thursday to end 17 months of fighting in Sudan's Darfur region, where U.N. officials say ..."
-    },
-    {
-        "pageLink": "https://drive.google.com/file/d/199j8lNtz7WNB8-j8NCjQRA0thPSBmfN6/view?usp=sharing",
-        "imageLink": "/imgs/lmd.svg",
-        "title": "Biodiversity & Bio-Piracy – The Case of Ethiopia",
-        "text": "Biodiversity conservation and Bio-piracy are hot issues of debate and dialogue between the techno-rich Northern developed and the Biodiversity rich Southern developing countries in International forums. "
-    },
-    {
-        "pageLink": "https://drive.google.com/file/d/1G0e2TXIpz7N3OKfFFJODs3vK26vVWVs4/view?usp=sharing" ,
-        "imageLink": "/imgs/lmd.svg",
-        "title": "Progress report on street culture in Ethiopia",
-        "text": "This paper deals with the social, economic and cultural aspects of the Ethiopian society which contribute to the emergence of street corner groups and the adjustment techniques which are adopted by street boys."
-    }
+  {
+    "pageLink": "http://news.bbc.co.uk/2/hi/africa/582697.stm",
+    "imageLink": "/imgs/bbc.svg",
+    "title": "Ethiopia: Partying like it's 1992",
+    "text": "As the western world approaches the millennium, according to the Ethiopian calendar it is still 1992. The country's unique calendar and timekeeping create a fascinating cultural divide.",
+    "source": "BBC",
+    "sourceClass": "source-bbc"
+  },
+  {
+    "pageLink": "http://news.bbc.co.uk/2/hi/africa/827712.stm",
+    "imageLink": "/imgs/bbc.svg",
+    "title": "De-mining in the Horn",
+    "text": "A year ago, Laeke Mariam Demessie visited the front line in the war with Eritrea — recently he returned to see the Ethiopian army consolidate its control over captured territory.",
+    "source": "BBC",
+    "sourceClass": "source-bbc"
+  },
+  {
+    "pageLink": "http://news.bbc.co.uk/2/hi/africa/609217.stm",
+    "imageLink": "/imgs/bbc.svg",
+    "title": "Ancient alphabet enters cyber age",
+    "text": "The alphabet used in Ethiopia and Eritrea is Africa's oldest. Laeke Mariam Demessie reports on the efforts to get the 276-letter script into the digital world.",
+    "source": "BBC",
+    "sourceClass": "source-bbc"
+  },
+  {
+    "pageLink": "http://newsvote.bbc.co.uk/2/hi/special_report/1999/07/99/battle_in_the_horn/399366.stm",
+    "imageLink": "/imgs/bbc.svg",
+    "title": "Battle in the Horn: Touring the Front Lines",
+    "text": "On-the-ground dispatch from the Ethiopia-Eritrea border war. Laeke toured captured trenches with Ethiopian forces, interviewed captured Eritrean soldiers, and documented the brutal reality of trench warfare in the Horn of Africa.",
+    "source": "BBC",
+    "sourceClass": "source-bbc"
+  },
+  {
+    "pageLink": "http://www.ipsnews.net/1997/04/science-africa-loses-scientist-and-genetic-rights-campaigner/",
+    "imageLink": "/imgs/lmd.svg",
+    "title": "SCIENCE: Africa Loses Scientist and Genetic Rights Campaigner",
+    "text": "With the death of Dr. Akilu Lemma, Africa has lost a scientist whose life and work illustrated the difficulties faced by African researchers and Africa's fight for genetic rights.",
+    "source": "IPS News",
+    "sourceClass": "source-general"
+  },
+  {
+    "pageLink": "https://www.ipsnews.net/1997/08/ips-development-bulletin-eritrea-monetary-divorce-from-ethiopia/",
+    "imageLink": "/imgs/lmd.svg",
+    "title": "Eritrea: Monetary Divorce From Ethiopia",
+    "text": "Although it fought a long war of independence against Ethiopia, Eritrea had kept using the Ethiopian birr after becoming Africa's newest nation in 1993 — but it has now adopted a national currency, the nakfa.",
+    "source": "IPS News",
+    "sourceClass": "source-general"
+  },
+  {
+    "pageLink": "https://www.timesargus.com/news/sudan-talks-fail/article_05ec3a52-c297-5332-9289-afcb3c2c129d.html",
+    "imageLink": "/imgs/lmd.svg",
+    "title": "Sudan Peace Talks Collapse as Rebels Walk Out",
+    "text": "Talks to end the unbridled violence that has killed tens of thousands in Sudan's Darfur region collapsed with two rebel groups charging the government had not kept its end of the bargain. AP wire dispatch from Addis Ababa, syndicated to newspapers across the United States.",
+    "source": "Associated Press",
+    "sourceClass": "source-sudantribune"
+  },
+  {
+    "pageLink": "hhttps://sudantribune.com/article/4745",
+    "imageLink": "/imgs/lmd.svg",
+    "title": "Sudan, rebels work to set agenda for talks",
+    "text": "Sudan and two rebel groups worked to set an agenda for talks aimed at ending 17 months of fighting across the nation.",
+    "source": "Sudan Tribune",
+    "sourceClass": "source-sudantribune"
+  },
+  {
+    "pageLink": "https://sudantribune.com/article/4758",
+    "imageLink": "/imgs/lmd.svg",
+    "title": "Darfur peace talks collapse as rebels walk out",
+    "text": "African Union-sponsored talks to end the slaughter of tens of thousands of people in Sudan's western Darfur region collapsed as rebels walked out.",
+    "source": "Sudan Tribune",
+    "sourceClass": "source-sudantribune"
+  },
+  {
+    "pageLink": "https://sudantribune.com/article/4771",
+    "imageLink": "/imgs/lmd.svg",
+    "title": "Talks to end slaughter in Darfur put on hold",
+    "text": "Talks to end the unbridled violence that has killed tens of thousands of people in Sudan's western Darfur region collapsed Saturday, putting peace efforts on indefinite hold.",
+    "source": "Sudan Tribune",
+    "sourceClass": "source-sudantribune"
+  },
+  {
+    "pageLink": "https://archive.sltrib.com/article.php?id=2377293&itype=NGPSID",
+    "imageLink": "/imgs/lmd.svg",
+    "title": "Sudan and rebels begin peace talks",
+    "text": "Sudanese officials and rebels began peace talks Thursday to end 17 months of fighting in Sudan's Darfur region, where U.N. officials say tens of thousands have died.",
+    "source": "SLTribune",
+    "sourceClass": "source-general"
+  },
+  {
+    "pageLink": "https://www.questia.com/magazine/1G1-20352666/ethiopia-stuck-in-telecoms-stone-age",
+    "imageLink": "/imgs/lmd.svg",
+    "title": "Ethiopia Stuck in Telecoms Stone-Age",
+    "text": "Ethiopia has only 150,000 telephone lines for a population of 56 million; and only 1,300 internet subscribers. In telecommunication terms, this is a disaster.",
+    "source": "Questia",
+    "sourceClass": "source-general"
+  },
+  {
+    "pageLink": "https://drive.google.com/file/d/199j8lNtz7WNB8-j8NCjQRA0thPSBmfN6/view?usp=sharing",
+    "imageLink": "/imgs/lmd.svg",
+    "title": "Biodiversity & Bio-Piracy — The Case of Ethiopia",
+    "text": "Biodiversity conservation and bio-piracy are hot issues of debate and dialogue between the techno-rich Northern developed and the biodiversity-rich Southern developing countries.",
+    "source": "Research Paper",
+    "sourceClass": "source-general"
+  },
+  {
+    "pageLink": "https://drive.google.com/file/d/1G0e2TXIpz7N3OKfFFJODs3vK26vVWVs4/view?usp=sharing",
+    "imageLink": "/imgs/lmd.svg",
+    "title": "Progress report on street culture in Ethiopia",
+    "text": "This paper deals with the social, economic and cultural aspects of Ethiopian society which contribute to the emergence of street corner groups and the adjustment techniques adopted by street boys.",
+    "source": "Research Paper",
+    "sourceClass": "source-general"
+  }
 ]
