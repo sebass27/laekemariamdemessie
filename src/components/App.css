@@ -1655,6 +1655,28 @@ body::before {
   display: none;
 }
 
+
+/* Light mode — make toggle visible on light bg */
+[data-theme="light"] .theme-toggle {
+  color: #333;
+  border-color: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="light"] .theme-toggle:hover {
+  color: #009B3A;
+  border-color: #009B3A;
+  background: rgba(0, 155, 58, 0.06);
+}
+
+[data-theme="light"] .theme-toggle-icon svg {
+  stroke: #333;
+}
+
+[data-theme="light"] .theme-toggle:hover .theme-toggle-icon svg {
+  stroke: #009B3A;
+}
+
 @media (max-width: 768px) {
   .theme-toggle {
     padding: 0.3rem 0.6rem;
