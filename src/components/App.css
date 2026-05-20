@@ -99,6 +99,9 @@ body {
   color: var(--text);
   line-height: 1.7;
   overflow-x: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
   cursor: none;
 }
 
@@ -111,6 +114,13 @@ body::before {
   pointer-events: none;
   opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.app {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  position: relative;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -186,6 +196,8 @@ body::before {
   justify-content: space-between;
   align-items: center;
   transition: all 0.5s var(--ease-out-expo);
+  width: 100%;
+  max-width: 100%;
 }
 
 .navbar.scrolled {
@@ -324,8 +336,8 @@ body::before {
 
 @media (max-width: 768px) {
   .navbar { padding: 1rem 1.5rem; }
-  .nav-links { display: none; }
-  .sidenav-trigger { display: flex; }
+  .nav-links { display: none !important; }
+  .sidenav-trigger { display: flex !important; }
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -353,6 +365,7 @@ body::before {
 
 .hero-content {
   text-align: center;
+  width: 100%;
   max-width: 900px;
   z-index: 2;
   position: relative;
@@ -575,6 +588,8 @@ body::before {
   margin: 0;
   position: relative;
   background: var(--bg-elevated);
+  width: 100%;
+  max-width: 100%;
 }
 
 .marquee-wrapper::before,
@@ -637,9 +652,11 @@ body::before {
    SECTIONS — Editorial Rhythm
    ═══════════════════════════════════════════════════════════ */
 .section-container {
+  width: 100%;
   max-width: 1100px;
   margin: 0 auto;
   padding: 9rem 3rem;
+  overflow: hidden;
 }
 
 .section-number {
@@ -655,6 +672,8 @@ body::before {
   transform: translateY(30px);
   transition: all 1s var(--ease-out-expo);
   position: relative;
+  width: 100%;
+  max-width: 100%;
 }
 
 .section-number.visible {
@@ -717,6 +736,7 @@ body::before {
 
 /* Section divider */
 .section-divider {
+  width: 100%;
   max-width: 1100px;
   margin: 0 auto;
   height: 1px;
@@ -749,8 +769,8 @@ body::before {
 }
 
 .about-image-photo {
-  width: auto;
-  min-width: 450px;
+  width: 100%;
+  max-width: 450px;
   border-radius: var(--radius);
   filter: drop-shadow(0 0 80px var(--eth-green-glow)) drop-shadow(0 0 160px rgba(0, 155, 58, 0.15));
   animation: float 8s ease-in-out infinite;
@@ -1174,7 +1194,7 @@ body::before {
 
 .book-cover {
   flex: 1;
-  min-width: 250px;
+  width: 100%;
   max-width: 340px;
   aspect-ratio: 3 / 4;
   border-radius: var(--radius-lg);
@@ -1215,7 +1235,7 @@ body::before {
 
 .book-info {
   flex: 1;
-  min-width: 280px;
+  width: 100%;
   opacity: 0;
   transform: translateX(40px);
   transition: all 0.9s var(--ease-out-expo) 0.3s;
@@ -1244,6 +1264,8 @@ body::before {
   margin-bottom: 1rem;
   line-height: 1.4;
   letter-spacing: 0.01em;
+  width: 100%;
+  max-width: 100%;
 }
 
 .book-origin {
@@ -1274,6 +1296,8 @@ body::before {
   line-height: 1.2;
   letter-spacing: 0.02em;
   margin-bottom: 0.3rem;
+  width: 100%;
+  max-width: 100%;
 }
 
 .english-title {
@@ -1285,6 +1309,8 @@ body::before {
   line-height: 1.3;
   letter-spacing: 0.04em;
   font-style: italic;
+  width: 100%;
+  max-width: 100%;
 }
 
 .book-author {
@@ -1457,6 +1483,7 @@ body::before {
 }
 
 .footer-inner {
+  width: 100%;
   max-width: 550px;
   margin: 0 auto;
 }
@@ -1546,6 +1573,7 @@ body::before {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  width: 90%;
   max-width: 520px;
   box-shadow: var(--shadow-cookie, 0 20px 60px rgba(0, 0, 0, 0.5));
 }
@@ -1612,6 +1640,9 @@ body::before {
   .hero-subtitle { font-size: 0.95rem; }
   .section-number { font-size: clamp(3rem, 12vw, 5rem); }
   .footer { padding: 3.5rem 1.5rem 2rem; }
+  .navbar { padding: 1rem 1.5rem; }
+  .nav-links { display: none !important; }
+  .sidenav-trigger { display: flex !important; }
 }
 
 @media (max-width: 480px) {
